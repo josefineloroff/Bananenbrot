@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Product.css'
 import '../../Swiper/Swiper.css'
 
 export default class Product extends Component {
@@ -8,9 +9,8 @@ export default class Product extends Component {
         <div className="product">
           <h3>{this.props.category}</h3>
           <h1>{this.props.name}</h1>
-          <img style={{ width: '100%' }} src={this.props.image} />
-          <p>{this.props.descriptionText}</p>
-          <div>{this.props.children}</div>
+          <img src={this.props.image} />
+          <p className="description-text">{this.props.descriptionText}</p>
         </div>
       </div>
     )

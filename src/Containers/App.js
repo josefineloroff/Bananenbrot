@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import Products from '../Components/Products/Products'
-import Product from '../Components/Products/Product/Product'
-import MySwiper from '../Components/Swiper/MySwiper'
+import MyNavbar from '../components/Navbar/MyNavbar'
+import Products from '../components/Products/Products'
+import MySwiper from '../components/Swiper/MySwiper'
 
-import DontPanic from '../Images/DontPanic.jpg'
-import R2D2 from '../Images/R2D2.jpg'
-import Gameboy from '../Images/Gameboy.jpg'
+import '../styles/index.css'
+import { Navbar } from 'reactstrap'
+
+import DontPanic from '../../src/assets/images/DontPanic.jpg'
+import R2D2 from '../../src/assets/images/R2D2.jpg'
+import Gameboy from '../../src/assets/images/Gameboy.jpg'
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +22,8 @@ class App extends Component {
           category: 'Mode',
           name: 'T-Shirt',
           image: DontPanic,
-          descriptionText: 'blah blah',
+          descriptionText:
+            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet',
           id: 1,
           index: 0,
         },
@@ -99,6 +103,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <MyNavbar />
         <MySwiper
           goPrev={this.changeProductLeft}
           goNext={this.changeProductRight}
