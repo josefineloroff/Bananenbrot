@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
 import MyNavbar from '../components/Navbar/MyNavbar'
 import Products from '../components/Products/Products'
 import MySwiper from '../components/Swiper/MySwiper'
+import BookmarkIcon from '../components/Bookmarks/BookmarkIcon'
 
 import '../styles/index.css'
-import { Navbar } from 'reactstrap'
 
 import DontPanic from '../../src/assets/images/DontPanic.jpg'
 import R2D2 from '../../src/assets/images/R2D2.jpg'
 import Gameboy from '../../src/assets/images/Gameboy.jpg'
+import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +19,7 @@ class App extends Component {
 
     this.state = {
       selectedIndex: 0,
+      showBookmarkIcon: true,
 
       products: [
         {
@@ -76,28 +80,8 @@ class App extends Component {
     }
   }
 
-  // swipeProducts = () => {
-  //   let mySwiper = new Swiper('.swiper-container', {
-  //     speed: 400,
-  //     spaceBetween: 100
-  //   });
-  // }
-
-  // changeProductRight = (id) => {
-  //   let products = this.state.products
-  //   let productIndex = this.state.products.findIndex(prod => {
-  //     this.setState({ index: (this.state.index + 1) % products.length })
-  //     //return prod.id === id
-  //   })
-  //   const product = {
-  //     ...this.state.products[productIndex]
-  //   }
-
-  // };
-
-  changeProductRight = () => {
-    let products = [...this.state.products]
-    this.setState({ index: (this.state.index + 1) % products.length })
+  clickBookmarkIcon() {
+    this.setState({ showBookmarkIcon: false })
   }
 
   render() {
@@ -110,6 +94,22 @@ class App extends Component {
         >
           <Products products={this.state.products} />
         </MySwiper>
+
+        <Router>
+          <Route
+            exact
+            path="/Bookmarklist"
+            component={Bookmarklist}
+            render={() => (
+              <div>
+                <BookmarkIcon
+                  show={this.state.showBookmarkIcon}
+                  bookmarked={e => this.clickBookmarkIcon()}
+                />
+              </div>
+            )}
+          />
+        </Router>
       </div>
     )
   }

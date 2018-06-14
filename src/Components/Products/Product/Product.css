@@ -1,9 +1,9 @@
 .product {
   width: 100%;
-  border: 1px solid #eee;
-  box-shadow: 0 2px 3px #ccc;
   text-align: center;
   align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 img {
   width: auto;
