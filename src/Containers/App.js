@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-import MyNavbar from '../components/Navbar/MyNavbar'
-import Products from '../components/Products/Products'
-import MySwiper from '../components/Swiper/MySwiper'
-import BookmarkIcon from '../components/Bookmarks/BookmarkIcon'
-
+import Bookmarklist from '../components/Bookmarks/Bookmarklist'
+import StartPage from '../components/StartPage'
 import '../styles/index.css'
 
 import DontPanic from '../../src/assets/images/DontPanic.jpg'
 import R2D2 from '../../src/assets/images/R2D2.jpg'
 import Gameboy from '../../src/assets/images/Gameboy.jpg'
-import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 
 class App extends Component {
   constructor(props) {
@@ -80,37 +76,27 @@ class App extends Component {
     }
   }
 
-  clickBookmarkIcon() {
+  clickBookmarkIcon = () => {
     this.setState({ showBookmarkIcon: false })
   }
 
   render() {
     return (
-      <div>
-        <MyNavbar />
-        <MySwiper
-          goPrev={this.changeProductLeft}
-          goNext={this.changeProductRight}
-        >
-          <Products products={this.state.products} />
-        </MySwiper>
-
-        <Router>
+      <Router>
+        <div>
           <Route
+            path="/"
             exact
-            path="/Bookmarklist"
-            component={Bookmarklist}
             render={() => (
-              <div>
-                <BookmarkIcon
-                  show={this.state.showBookmarkIcon}
-                  bookmarked={e => this.clickBookmarkIcon()}
-                />
-              </div>
+              <StartPage
+                state={this.state}
+                onBookmark={this.clickBookmarkIcon}
+              />
             )}
           />
-        </Router>
-      </div>
+          <Route path="/bookmarklist" component={Bookmarklist} />
+        </div>
+      </Router>
     )
   }
 }

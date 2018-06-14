@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route, Switch } from 'react-router'
+import { Router, Route, Switch, NavLink as RouterLink } from 'react-router-dom'
 import {
   Collapse,
   Navbar,
@@ -32,12 +32,14 @@ export default class Example extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">BANANENBROT</NavbarBrand>
+          <RouterLink to="/">
+            <NavbarBrand>BANANENBROT</NavbarBrand>
+          </RouterLink>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/Components/Bookmarklist">Bookmarks</NavLink>
+                <RouterLink to="/bookmarklist">Bookmarks</RouterLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
