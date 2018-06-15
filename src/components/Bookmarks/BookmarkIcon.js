@@ -11,14 +11,17 @@ export default class BookmarkIcon extends Component {
       return (
         <div className="divicon">
           <Icon
-            onClick={this.props.bookmarked}
+            onClick={this.props.onBookmark}
             size={'100%'}
             float={'right'}
             className="bookmarkicon"
             icon={bookmarkO}
+            style={{ cursor: 'pointer' }}
           />
         </div>
       )
+    } else {
+      return null
     }
   }
 }

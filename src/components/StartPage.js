@@ -16,7 +16,7 @@ export default class StartPage extends Component {
         </MySwiper>
         <BookmarkIcon
           show={showBookmarkIcon}
-          bookmarked={this.props.onBookmark}
+          onBookmark={this.props.onBookmark}
         />
       </div>
     )

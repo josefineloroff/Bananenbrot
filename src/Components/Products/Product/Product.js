@@ -7,8 +7,8 @@ export default class Product extends Component {
     return (
       <div className="swiper-slide">
         <div className="product">
-          <h3>{this.props.category}</h3>
-          <h1>{this.props.name}</h1>
+          <h3 className="h3">{this.props.category}</h3>
+          <h1 className="h1">{this.props.name}</h1>
           <img src={this.props.image} />
           <p className="description-text">{this.props.descriptionText}</p>
         </div>

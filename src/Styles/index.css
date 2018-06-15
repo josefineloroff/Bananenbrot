@@ -6,3 +6,6 @@ body {
   text-align: center;
   font-family: verdana;
 }
+ul li {
+  list-style: none;
+}
