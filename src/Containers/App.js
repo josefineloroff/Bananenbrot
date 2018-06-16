@@ -15,6 +15,7 @@ class App extends Component {
   state = {
     selectedIndex: 0,
     showBookmarkIcon: true,
+    showLikeIcon: true,
     filter: false,
     products: [
       {
@@ -26,6 +27,7 @@ class App extends Component {
         id: 1,
         index: 0,
         showBookmarkIcon: true,
+        showLikeIcon: true,
         likes: 0,
       },
 
@@ -37,6 +39,7 @@ class App extends Component {
         id: 2,
         index: 1,
         showBookmarkIcon: true,
+        showLikeIcon: true,
         likes: 0,
       },
 
@@ -48,6 +51,7 @@ class App extends Component {
         id: 3,
         index: 2,
         showBookmarkIcon: true,
+        showLikeIcon: true,
         likes: 0,
       },
 
@@ -59,6 +63,7 @@ class App extends Component {
         id: 4,
         index: 3,
         showBookmarkIcon: true,
+        showLikeIcon: true,
         likes: 0,
       },
 
@@ -70,6 +75,7 @@ class App extends Component {
         id: 5,
         index: 4,
         showBookmarkIcon: true,
+        showLikeIcon: true,
         likes: 0,
       },
 
@@ -81,11 +87,13 @@ class App extends Component {
         id: 6,
         index: 5,
         showBookmarkIcon: true,
+        showLikeIcon: true,
         likes: 0,
       },
     ],
   }
-  increaseLikes(id) {
+
+  like(id) {
     const foundProductIndex = this.state.products.findIndex(
       quote => quote.id === id
     )
@@ -133,7 +141,11 @@ class App extends Component {
             path="/"
             exact
             render={() => (
-              <StartPage state={this.state} onBookmark={this.bookmark} />
+              <StartPage
+                state={this.state}
+                onBookmark={this.bookmark}
+                onLike={this.like}
+              />
             )}
           />
           <Route

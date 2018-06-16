@@ -1,0 +1,12 @@
+.divicon {
+  width: 30px !important;
+  height: 30px !important;
+  display: flex;
+  justify-content: right;
+  align-items: right !important;
+}
+
+.likeicon {
+  float: right;
+  size: 100%;
+}

@@ -17,7 +17,9 @@ export default class Product extends Component {
         </div>
         <BookmarkIcon
           show={this.props.showBookmarkIcon}
+          show={this.props.showLikeIcon}
           onBookmark={e => this.props.onBookmark(this.props.id)}
+          onLike={e => this.props.onLike(this.props.id)}
         />
       </div>
     )

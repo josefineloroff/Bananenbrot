@@ -12,7 +12,8 @@ const products = props =>
         key={product.id}
         id={product.id}
         showBookmarkIcon={product.showBookmarkIcon}
-        onBookmark={props.onBookmark}
+        showLikeIcon={product.showLikeIcon}
+        onLike={props.onLike}
       />
     )
   })
