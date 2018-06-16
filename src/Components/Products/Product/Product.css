@@ -9,7 +9,7 @@
   width: auto;
   height: 400px;
 }
-.swiper-container .description-text {
+.swiper-container p.description-text {
   height: 150px;
   border: 1px solid #eee;
   box-shadow: 1px 2px 3px #ccc;
@@ -18,13 +18,13 @@
   padding: 10px;
   margin: 20px;
 }
-h1 {
-  font-size: 34px;
+.h1 {
   text-align: center;
   float: center;
+  font-size: 36px;
 }
-h3 {
-  font-size: 30px;
+.h3 {
   text-align: center;
   float: center;
+  font-size: 30px;
 }

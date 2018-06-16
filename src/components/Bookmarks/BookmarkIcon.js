@@ -17,6 +17,7 @@ export default class BookmarkIcon extends Component {
             className="bookmarkicon"
             icon={bookmarkO}
             style={{ cursor: 'pointer' }}
+            isBookmarked={this.props.isBookmarked}
           />
         </div>
       )

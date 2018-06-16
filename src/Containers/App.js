@@ -15,15 +15,18 @@ class App extends Component {
   state = {
     selectedIndex: 0,
     showBookmarkIcon: true,
+    filter: false,
     products: [
       {
-        category: 'Mode',
-        name: 'T-Shirt',
+        category: 'Mode aus aller Welt',
+        name: 'T-Shirt mit schickem Muster',
         image: DontPanic,
         descriptionText:
           'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet',
         id: 1,
         index: 0,
+        showBookmarkIcon: true,
+        likes: 0,
       },
 
       {
@@ -33,6 +36,8 @@ class App extends Component {
         descriptionText: 'bluh bluh',
         id: 2,
         index: 1,
+        showBookmarkIcon: true,
+        likes: 0,
       },
 
       {
@@ -42,6 +47,8 @@ class App extends Component {
         descriptionText: 'bloh bloh',
         id: 3,
         index: 2,
+        showBookmarkIcon: true,
+        likes: 0,
       },
 
       {
@@ -51,6 +58,8 @@ class App extends Component {
         descriptionText: 'blah blah',
         id: 4,
         index: 3,
+        showBookmarkIcon: true,
+        likes: 0,
       },
 
       {
@@ -60,6 +69,8 @@ class App extends Component {
         descriptionText: 'bluh bluh',
         id: 5,
         index: 4,
+        showBookmarkIcon: true,
+        likes: 0,
       },
 
       {
@@ -69,12 +80,49 @@ class App extends Component {
         descriptionText: 'bloh bloh',
         id: 6,
         index: 5,
+        showBookmarkIcon: true,
+        likes: 0,
       },
     ],
   }
+  increaseLikes(id) {
+    const foundProductIndex = this.state.products.findIndex(
+      quote => quote.id === id
+    )
+    const foundProduct = this.state.products[foundProductIndex]
+    const startOfNewArray = this.state.products.slice(0, foundProductIndex)
+    const endOfNewArray = this.state.products.slice(foundProductIndex + 1)
+    const newObject = { ...foundProduct, likes: foundProduct.likes + 1 }
 
-  clickBookmarkIcon = () => {
-    this.setState({ showBookmarkIcon: false })
+    this.setState({
+      products: [...startOfNewArray, newObject, ...endOfNewArray],
+    })
+  }
+
+  bookmark = id => {
+    const foundProductIndex = this.state.products.findIndex(
+      product => product.id === id
+    )
+
+    const foundProduct = this.state.products[foundProductIndex]
+
+    const startOfNewArray = this.state.products.slice(0, foundProductIndex)
+    const endOfNewArray = this.state.products.slice(foundProductIndex + 1)
+    const newObject = {
+      ...foundProduct,
+      isBookmarked: !foundProduct.isBookmarked,
+      showBookmarkIcon: false,
+    }
+
+    this.setState({
+      products: [...startOfNewArray, newObject, ...endOfNewArray],
+    })
+  }
+
+  toggleFilter = () => {
+    this.setState({
+      filter: !this.state.filter,
+    })
   }
 
   render() {
@@ -85,10 +133,7 @@ class App extends Component {
             path="/"
             exact
             render={() => (
-              <StartPage
-                state={this.state}
-                onBookmark={this.clickBookmarkIcon}
-              />
+              <StartPage state={this.state} onBookmark={this.bookmark} />
             )}
           />
           <Route

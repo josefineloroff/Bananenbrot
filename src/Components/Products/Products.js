@@ -10,6 +10,9 @@ const products = props =>
         image={product.image}
         descriptionText={product.descriptionText}
         key={product.id}
+        id={product.id}
+        showBookmarkIcon={product.showBookmarkIcon}
+        onBookmark={props.onBookmark}
       />
     )
   })

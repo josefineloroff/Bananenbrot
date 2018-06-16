@@ -1,40 +1,49 @@
 .ul-bookmarklist {
   width: 100%;
+  list-style-type: unset;
 }
 
 .li-bookmarklist {
   width: 100%;
+  height: auto;
+  break-after: always;
+  margin-top: 20px;
 }
 
-.ul-bookmarklist .li-bookmarklist .product-bookmarklist {
-  float: left;
+.bookmarklist {
   text-align: left;
-  align-items: left;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.ul-bookmarklist .li-bookmarklist .product img {
-  width: 50px;
-  height: auto;
+
+.ul-bookmarklist .li-bookmarklist .image-container img {
+  width: 100px;
+  height: 100px;
   float: left;
 }
 
-p.description-bookmarklist {
+.ul-bookmarklist .li-bookmarklist .description-text {
   height: 80px;
-  width: 70%;
+  width: auto;
   border: 1px solid #eee;
   box-shadow: 1px 2px 3px #ccc;
   overflow: auto;
   padding: 10px;
   margin: 10px;
-  float: right;
   margin-left: 10px;
 }
-.product .h1-bookmarklist {
+.ul-bookmarklist .li-bookmarklist .h1 {
   font-size: 16px;
   float: left;
+  width: 100px;
+  margin-left: 10px;
+  break-after: always;
+  break-before: always;
 }
-.product h3 {
+.ul-bookmarklist .li-bookmarklist .h3 {
   font-size: 14px;
   float: left;
+  break-after: always;
+  break-before: always;
+  width: 100px;
 }
