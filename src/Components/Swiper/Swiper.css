@@ -178,7 +178,8 @@
   -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   z-index: 10;
-  margin-bottom: -10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .swiper-pagination.swiper-pagination-hidden {
   opacity: 0;

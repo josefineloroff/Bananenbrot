@@ -6,7 +6,12 @@ import Bookmarklist from './Bookmarks/Bookmarklist'
 
 export default class StartPage extends Component {
   render() {
-    const { products, showBookmarkIcon, showLikeIcon } = this.props.state
+    const {
+      products,
+      showBookmarkIcon,
+      showLikeIcon,
+      filter,
+    } = this.props.state
     return (
       <div>
         <MyNavbar />

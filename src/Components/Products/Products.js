@@ -14,6 +14,9 @@ const products = props =>
         showBookmarkIcon={product.showBookmarkIcon}
         showLikeIcon={product.showLikeIcon}
         onLike={props.onLike}
+        onBookmark={props.onBookmark}
+        isBookmarked={product.isBookmarked}
+        isLiked={product.isLiked}
       />
     )
   })

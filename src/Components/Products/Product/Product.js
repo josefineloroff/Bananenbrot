@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './Product.css'
 import '../../Swiper/Swiper.css'
-import BookmarkIcon from '../../Bookmarks/BookmarkIcon'
+import BookmarkIcon from '../../Icons/BookmarkIcon'
+import LikeIcon from '../../Icons/LikeIcon'
 
 export default class Product extends Component {
   render() {
@@ -15,12 +16,16 @@ export default class Product extends Component {
           </div>
           <p className="description-text">{this.props.descriptionText}</p>
         </div>
-        <BookmarkIcon
-          show={this.props.showBookmarkIcon}
-          show={this.props.showLikeIcon}
-          onBookmark={e => this.props.onBookmark(this.props.id)}
-          onLike={e => this.props.onLike(this.props.id)}
-        />
+        <div style={{ width: 40, height: 40 }} className="divicon">
+          <BookmarkIcon
+            show={this.props.showBookmarkIcon}
+            onBookmark={e => this.props.onBookmark(this.props.id)}
+          />
+          <LikeIcon
+            show={this.props.showLikeIcon}
+            onLike={e => this.props.onLike(this.props.id)}
+          />
+        </div>
       </div>
     )
   }

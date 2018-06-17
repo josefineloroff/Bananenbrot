@@ -1,5 +1,6 @@
 import React from 'react'
 import { Router, Route, Switch, NavLink as RouterLink } from 'react-router-dom'
+import './MyNavbar.css'
 import {
   Collapse,
   Navbar,
@@ -38,11 +39,14 @@ export default class Example extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
+              <NavItem className="nav-home">
                 <RouterLink to="/">Home</RouterLink>
               </NavItem>
-              <NavItem>
+              <NavItem className="nav-bookmarks">
                 <RouterLink to="/bookmarklist">Bookmarks</RouterLink>
+              </NavItem>
+              <NavItem className="nav-likes">
+                <RouterLink to="/likelist">Likes</RouterLink>
               </NavItem>
 
               <UncontrolledDropdown nav inNavbar>
