@@ -3,6 +3,7 @@ import './Product.css'
 import '../../Swiper/Swiper.css'
 import BookmarkIcon from '../../Icons/BookmarkIcon'
 import LikeIcon from '../../Icons/LikeIcon'
+import TrashIcon from '../../Icons/TrashIcon'
 
 export default class Product extends Component {
   render() {
@@ -24,6 +25,10 @@ export default class Product extends Component {
           <LikeIcon
             show={this.props.showLikeIcon}
             onLike={e => this.props.onLike(this.props.id)}
+          />
+          <TrashIcon
+            show={this.props.showTrashIcon}
+            onTrash={e => this.props.onTrash(this.props.id)}
           />
         </div>
       </div>

@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import StartPage from '../components/StartPage'
 import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 import Likelist from '../components/Likes/Likelist'
+import Trashlist from '../components/Trashes/Trashlist'
+
 import MyNavbar from '../components/Navbar/MyNavbar'
 import Products from '../components/Products/Products'
 
@@ -18,6 +20,7 @@ class App extends Component {
     selectedIndex: 0,
     showBookmarkIcon: true,
     showLikeIcon: true,
+    showTrashIcon: true,
     filter: false,
     products: [
       {
@@ -31,8 +34,10 @@ class App extends Component {
         showBookmarkIcon: true,
         showLikeIcon: true,
         likes: 0,
+        trashes: 0,
         isLiked: 0,
         isBookmarked: 0,
+        isTrashed: 0,
       },
 
       {
@@ -45,8 +50,10 @@ class App extends Component {
         showBookmarkIcon: true,
         showLikeIcon: true,
         likes: 0,
+        trashes: 0,
         isLiked: 0,
         isBookmarked: 0,
+        isTrashed: 0,
       },
 
       {
@@ -59,8 +66,10 @@ class App extends Component {
         showBookmarkIcon: true,
         showLikeIcon: true,
         likes: 0,
+        trashes: 0,
         isLiked: 0,
         isBookmarked: 0,
+        isTrashed: 0,
       },
 
       {
@@ -73,8 +82,10 @@ class App extends Component {
         showBookmarkIcon: true,
         showLikeIcon: true,
         likes: 0,
+        trashes: 0,
         isLiked: 0,
         isBookmarked: 0,
+        isTrashed: 0,
       },
 
       {
@@ -87,8 +98,10 @@ class App extends Component {
         showBookmarkIcon: true,
         showLikeIcon: true,
         likes: 0,
+        trashes: 0,
         isLiked: 0,
         isBookmarked: 0,
+        isTrashed: 0,
       },
 
       {
@@ -101,10 +114,31 @@ class App extends Component {
         showBookmarkIcon: true,
         showLikeIcon: true,
         likes: 0,
+        trashes: 0,
         isLiked: 0,
         isBookmarked: 0,
+        isTrashed: 0,
       },
     ],
+  }
+
+  trash = id => {
+    const foundProductIndex = this.state.products.findIndex(
+      product => product.id === id
+    )
+    const foundProduct = this.state.products[foundProductIndex]
+    const startOfNewArray = this.state.products.slice(0, foundProductIndex)
+    const endOfNewArray = this.state.products.slice(foundProductIndex + 1)
+    const newObject = {
+      ...foundProduct,
+      isTrashed: !foundProduct.isLiked,
+      showTrashIcon: false,
+    }
+
+    this.setState({
+      products: [...startOfNewArray, newObject, ...endOfNewArray],
+      trashes: this.state.trashes + 1,
+    })
   }
 
   like = id => {
@@ -166,6 +200,8 @@ class App extends Component {
                 isBookmarked={this.bookmark}
                 onLike={this.like}
                 isLiked={this.like}
+                onTrash={this.trash}
+                isTrashed={this.trash}
               />
             )}
           />
@@ -176,6 +212,10 @@ class App extends Component {
           <Route
             path="/likelist"
             render={() => <Likelist state={this.state} />}
+          />
+          <Route
+            path="/trashlist"
+            render={() => <Trashlist state={this.state} />}
           />
         </div>
       </Router>

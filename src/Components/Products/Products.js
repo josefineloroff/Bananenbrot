@@ -13,10 +13,13 @@ const products = props =>
         id={product.id}
         showBookmarkIcon={product.showBookmarkIcon}
         showLikeIcon={product.showLikeIcon}
+        showTrashIcon={product.showTrashIcon}
         onLike={props.onLike}
         onBookmark={props.onBookmark}
+        onTrash={props.onTrash}
         isBookmarked={product.isBookmarked}
         isLiked={product.isLiked}
+        isTrashed={product.isTrashed}
       />
     )
   })

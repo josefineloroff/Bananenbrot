@@ -10,7 +10,7 @@ export default class BookmarkIcon extends Component {
     if (this.props.show) {
       return (
         <Icon
-          size={'60%'}
+          size={'70%'}
           onClick={e => this.props.onBookmark(this.props.id)}
           float={'right'}
           className="bookmarkicon"

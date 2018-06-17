@@ -48,6 +48,9 @@ export default class Example extends React.Component {
               <NavItem className="nav-likes">
                 <RouterLink to="/likelist">Likes</RouterLink>
               </NavItem>
+              <NavItem className="nav-trashes">
+                <RouterLink to="/trashlist">Trashes</RouterLink>
+              </NavItem>
 
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
