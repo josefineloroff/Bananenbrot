@@ -2,16 +2,10 @@ import React, { Component } from 'react'
 import MyNavbar from './Navbar/MyNavbar'
 import Products from './Products/Products'
 import MySwiper from './Swiper/MySwiper'
-import Bookmarklist from './Bookmarks/Bookmarklist'
 
 export default class StartPage extends Component {
   render() {
-    const {
-      products,
-      showBookmarkIcon,
-      showLikeIcon,
-      filter,
-    } = this.props.state
+    const { products } = this.props.state
     return (
       <div>
         <MyNavbar />

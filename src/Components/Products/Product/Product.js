@@ -13,11 +13,16 @@ export default class Product extends Component {
           <p className="h3">{this.props.category}</p>
           <p className="h1">{this.props.name}</p>
           <div className="image-container">
-            <img src={this.props.image} />
+            <img src={this.props.image} alt={this.props.name} />
           </div>
           <p className="description-text">{this.props.descriptionText}</p>
         </div>
-        <div style={{ width: 40, height: 40 }} className="divicon">
+        <div
+          style={{
+            height: 60,
+          }}
+          className="divicon"
+        >
           <BookmarkIcon
             show={this.props.showBookmarkIcon}
             onBookmark={e => this.props.onBookmark(this.props.id)}

@@ -1,16 +1,13 @@
 .bookmarkicon {
-  float: right;
-  width: 50px;
-  height: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .likeicon {
-  float: right;
-  width: 50px;
-  height: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .trashicon {
-  float: right;
-  width: 50px;
-  height: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
 }

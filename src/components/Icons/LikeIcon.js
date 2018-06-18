@@ -10,9 +10,8 @@ export default class LikeIcon extends Component {
     if (this.props.show) {
       return (
         <Icon
-          size={'120%'}
+          size={'100%'}
           onClick={e => this.props.onLike(this.props.id)}
-          float={'right'}
           className="likeicon"
           icon={heartO}
           style={{ cursor: 'pointer' }}

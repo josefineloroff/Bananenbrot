@@ -12,7 +12,6 @@ export default class TrashIcon extends Component {
         <Icon
           size={'100%'}
           onClick={e => this.props.onTrash(this.props.id)}
-          float={'right'}
           className="trashicon"
           icon={trashO}
           style={{ cursor: 'pointer' }}

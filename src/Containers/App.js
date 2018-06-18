@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import StartPage from '../components/StartPage'
 import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 import Likelist from '../components/Likes/Likelist'
 import Trashlist from '../components/Trashes/Trashlist'
-
-import MyNavbar from '../components/Navbar/MyNavbar'
-import Products from '../components/Products/Products'
 
 import '../styles/index.css'
 
@@ -33,6 +30,7 @@ class App extends Component {
         index: 0,
         showBookmarkIcon: true,
         showLikeIcon: true,
+        showTrashIcon: true,
         likes: 0,
         trashes: 0,
         isLiked: 0,
@@ -49,6 +47,7 @@ class App extends Component {
         index: 1,
         showBookmarkIcon: true,
         showLikeIcon: true,
+        showTrashIcon: true,
         likes: 0,
         trashes: 0,
         isLiked: 0,
@@ -65,6 +64,7 @@ class App extends Component {
         index: 2,
         showBookmarkIcon: true,
         showLikeIcon: true,
+        showTrashIcon: true,
         likes: 0,
         trashes: 0,
         isLiked: 0,
@@ -81,6 +81,7 @@ class App extends Component {
         index: 3,
         showBookmarkIcon: true,
         showLikeIcon: true,
+        showTrashIcon: true,
         likes: 0,
         trashes: 0,
         isLiked: 0,
@@ -97,6 +98,7 @@ class App extends Component {
         index: 4,
         showBookmarkIcon: true,
         showLikeIcon: true,
+        showTrashIcon: true,
         likes: 0,
         trashes: 0,
         isLiked: 0,
@@ -113,6 +115,7 @@ class App extends Component {
         index: 5,
         showBookmarkIcon: true,
         showLikeIcon: true,
+        showTrashIcon: true,
         likes: 0,
         trashes: 0,
         isLiked: 0,

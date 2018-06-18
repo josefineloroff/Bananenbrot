@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import MyNavbar from '../Navbar/MyNavbar'
 import Product from '../Products/Product/Product'
-import Products from '../Products/Products'
 
 import './Bookmarklist.css'
-import styled from 'react-emotion'
 
 export default class Bookmarklist extends Component {
   render() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route, Switch, NavLink as RouterLink } from 'react-router-dom'
+import { NavLink as RouterLink } from 'react-router-dom'
 import './MyNavbar.css'
 import {
   Collapse,
@@ -8,7 +8,6 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -34,32 +33,40 @@ export default class Example extends React.Component {
       <div>
         <Navbar color="light" light expand="md">
           <RouterLink to="/">
-            <NavbarBrand>BANANENBROT</NavbarBrand>
+            <NavbarBrand className="text-info">BANANENBROT</NavbarBrand>
           </RouterLink>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="nav-home">
-                <RouterLink to="/">Home</RouterLink>
+                <RouterLink className="text-info" to="/">
+                  Home
+                </RouterLink>
               </NavItem>
               <NavItem className="nav-bookmarks">
-                <RouterLink to="/bookmarklist">Bookmarks</RouterLink>
+                <RouterLink className="text-info" to="/bookmarklist">
+                  Bookmarks
+                </RouterLink>
               </NavItem>
               <NavItem className="nav-likes">
-                <RouterLink to="/likelist">Likes</RouterLink>
+                <RouterLink className="text-info" to="/likelist">
+                  Likes
+                </RouterLink>
               </NavItem>
               <NavItem className="nav-trashes">
-                <RouterLink to="/trashlist">Trashes</RouterLink>
+                <RouterLink className="text-info" to="/trashlist">
+                  Trashes
+                </RouterLink>
               </NavItem>
 
               <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
+                <DropdownToggle className="text-info" nav caret>
                   Privacy
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>Account</DropdownItem>
+                  <DropdownItem className="text-info">Account</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Logout</DropdownItem>
+                  <DropdownItem className="text-info">Logout</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
