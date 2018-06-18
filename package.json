@@ -3,9 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-browser": "^6.1.19",
+    "babel-loader": "^7.1.4",
+    "create-react-class": "^15.6.3",
+    "emotion": "^9.1.3",
+    "grid": "^3.3.7",
+    "prettier": "^1.13.4",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
+    "react-id-swiper": "^1.6.4",
+    "react-native-swipe-gestures": "^1.0.2",
+    "react-scripts": "^1.1.4",
+    "react-slider-swiper": "^2.0.6",
+    "swiper": "^4.3.3",
+    "webpack": "^3.11.0",
+    "deploy": "npm run build && cd build && rm static/{css,js}/*.map && now --public"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -17,5 +29,13 @@
   "main": "index.js",
   "devDependencies": {},
   "author": "Josefine Loroff",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josefineloroff/bananenbrot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/josefineloroff/bananenbrot/issues"
+  },
+  "homepage": "https://github.com/josefineloroff/bananenbrot#readme"
 }
