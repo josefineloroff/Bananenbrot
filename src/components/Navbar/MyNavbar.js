@@ -1,6 +1,7 @@
 import React from 'react'
-import { NavLink as RouterLink } from 'react-router-dom'
 import './MyNavbar.css'
+
+import { NavLink as RouterLink } from 'react-router-dom'
 import {
   Collapse,
   Navbar,
@@ -31,7 +32,7 @@ export default class Example extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <Navbar color="light" light expand="md" className="navbar">
           <RouterLink to="/">
             <NavbarBrand className="text-info">BANANENBROT</NavbarBrand>
           </RouterLink>
