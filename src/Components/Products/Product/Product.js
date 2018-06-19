@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import './Product.css'
 import '../../Swiper/Swiper.css'
-import BookmarkIcon from '../../Bookmarks/BookmarkIcon'
+import BookmarkIcon from '../../Icons/BookmarkIcon'
+import LikeIcon from '../../Icons/LikeIcon'
+import TrashIcon from '../../Icons/TrashIcon'
 
 export default class Product extends Component {
   render() {
@@ -11,14 +13,29 @@ export default class Product extends Component {
           <p className="h3">{this.props.category}</p>
           <p className="h1">{this.props.name}</p>
           <div className="image-container">
-            <img src={this.props.image} />
+            <img src={this.props.image} alt={this.props.name} />
           </div>
           <p className="description-text">{this.props.descriptionText}</p>
         </div>
-        <BookmarkIcon
-          show={this.props.showBookmarkIcon}
-          onBookmark={e => this.props.onBookmark(this.props.id)}
-        />
+        <div
+          style={{
+            height: 60,
+          }}
+          className="divicon"
+        >
+          <BookmarkIcon
+            show={this.props.showBookmarkIcon}
+            onBookmark={e => this.props.onBookmark(this.props.id)}
+          />
+          <LikeIcon
+            show={this.props.showLikeIcon}
+            onLike={e => this.props.onLike(this.props.id)}
+          />
+          <TrashIcon
+            show={this.props.showTrashIcon}
+            onTrash={e => this.props.onTrash(this.props.id)}
+          />
+        </div>
       </div>
     )
   }

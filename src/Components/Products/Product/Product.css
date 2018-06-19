@@ -28,3 +28,18 @@
   float: center;
   font-size: 30px;
 }
+.divicon {
+  position: relative;
+  height: 40px !important;
+  display: inline-flex;
+  justify-content: left;
+  align-items: left !important;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #17a2b8;
+  background-color: rgba(240, 240, 240, 0.5);
+}

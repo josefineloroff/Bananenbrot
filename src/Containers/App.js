@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 import StartPage from '../components/StartPage'
-import MyNavbar from '../components/Navbar/MyNavbar'
+import Bookmarklist from '../components/Bookmarks/Bookmarklist'
+import Likelist from '../components/Likes/Likelist'
+import Trashlist from '../components/Trashes/Trashlist'
 
 import '../styles/index.css'
 
@@ -15,6 +16,8 @@ class App extends Component {
   state = {
     selectedIndex: 0,
     showBookmarkIcon: true,
+    showLikeIcon: true,
+    showTrashIcon: true,
     filter: false,
     products: [
       {
@@ -26,7 +29,13 @@ class App extends Component {
         id: 1,
         index: 0,
         showBookmarkIcon: true,
+        showLikeIcon: true,
+        showTrashIcon: true,
         likes: 0,
+        trashes: 0,
+        isLiked: 0,
+        isBookmarked: 0,
+        isTrashed: 0,
       },
 
       {
@@ -37,7 +46,13 @@ class App extends Component {
         id: 2,
         index: 1,
         showBookmarkIcon: true,
+        showLikeIcon: true,
+        showTrashIcon: true,
         likes: 0,
+        trashes: 0,
+        isLiked: 0,
+        isBookmarked: 0,
+        isTrashed: 0,
       },
 
       {
@@ -48,7 +63,13 @@ class App extends Component {
         id: 3,
         index: 2,
         showBookmarkIcon: true,
+        showLikeIcon: true,
+        showTrashIcon: true,
         likes: 0,
+        trashes: 0,
+        isLiked: 0,
+        isBookmarked: 0,
+        isTrashed: 0,
       },
 
       {
@@ -59,7 +80,13 @@ class App extends Component {
         id: 4,
         index: 3,
         showBookmarkIcon: true,
+        showLikeIcon: true,
+        showTrashIcon: true,
         likes: 0,
+        trashes: 0,
+        isLiked: 0,
+        isBookmarked: 0,
+        isTrashed: 0,
       },
 
       {
@@ -70,7 +97,13 @@ class App extends Component {
         id: 5,
         index: 4,
         showBookmarkIcon: true,
+        showLikeIcon: true,
+        showTrashIcon: true,
         likes: 0,
+        trashes: 0,
+        isLiked: 0,
+        isBookmarked: 0,
+        isTrashed: 0,
       },
 
       {
@@ -81,21 +114,53 @@ class App extends Component {
         id: 6,
         index: 5,
         showBookmarkIcon: true,
+        showLikeIcon: true,
+        showTrashIcon: true,
         likes: 0,
+        trashes: 0,
+        isLiked: 0,
+        isBookmarked: 0,
+        isTrashed: 0,
       },
     ],
   }
-  increaseLikes(id) {
+
+  trash = id => {
     const foundProductIndex = this.state.products.findIndex(
-      quote => quote.id === id
+      product => product.id === id
     )
     const foundProduct = this.state.products[foundProductIndex]
     const startOfNewArray = this.state.products.slice(0, foundProductIndex)
     const endOfNewArray = this.state.products.slice(foundProductIndex + 1)
-    const newObject = { ...foundProduct, likes: foundProduct.likes + 1 }
+    const newObject = {
+      ...foundProduct,
+      isTrashed: !foundProduct.isLiked,
+      showTrashIcon: false,
+    }
 
     this.setState({
       products: [...startOfNewArray, newObject, ...endOfNewArray],
+      trashes: this.state.trashes + 1,
+    })
+  }
+
+  like = id => {
+    const foundProductIndex = this.state.products.findIndex(
+      product => product.id === id
+    )
+    const foundProduct = this.state.products[foundProductIndex]
+    const startOfNewArray = this.state.products.slice(0, foundProductIndex)
+    const endOfNewArray = this.state.products.slice(foundProductIndex + 1)
+    const newObject = {
+      ...foundProduct,
+      isLiked: !foundProduct.isLiked,
+      showLikeIcon: false,
+      //likes: foundProduct.likes + 1,
+    }
+
+    this.setState({
+      products: [...startOfNewArray, newObject, ...endOfNewArray],
+      likes: this.state.likes + 1,
     })
   }
 
@@ -105,7 +170,6 @@ class App extends Component {
     )
 
     const foundProduct = this.state.products[foundProductIndex]
-
     const startOfNewArray = this.state.products.slice(0, foundProductIndex)
     const endOfNewArray = this.state.products.slice(foundProductIndex + 1)
     const newObject = {
@@ -133,12 +197,28 @@ class App extends Component {
             path="/"
             exact
             render={() => (
-              <StartPage state={this.state} onBookmark={this.bookmark} />
+              <StartPage
+                state={this.state}
+                onBookmark={this.bookmark}
+                isBookmarked={this.bookmark}
+                onLike={this.like}
+                isLiked={this.like}
+                onTrash={this.trash}
+                isTrashed={this.trash}
+              />
             )}
           />
           <Route
             path="/bookmarklist"
             render={() => <Bookmarklist state={this.state} />}
+          />
+          <Route
+            path="/likelist"
+            render={() => <Likelist state={this.state} />}
+          />
+          <Route
+            path="/trashlist"
+            render={() => <Trashlist state={this.state} />}
           />
         </div>
       </Router>
