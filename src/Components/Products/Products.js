@@ -10,8 +10,9 @@ const products = props =>
         image={product.image}
         descriptionText={product.descriptionText}
         key={product.id}
-        goPrev={props.changedLeft}
-        goNext={props.changedRight}
+        id={product.id}
+        showBookmarkIcon={product.showBookmarkIcon}
+        onBookmark={props.onBookmark}
       />
     )
   })

@@ -1,4 +1,30 @@
-.product {
+.swiper-container .product {
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.swiper-container img {
+  width: auto;
+  height: 400px;
+}
+.swiper-container p.description-text {
+  height: 150px;
   border: 1px solid #eee;
-  box-shadow: #fff;
+  box-shadow: 1px 2px 3px #ccc;
+  padding-bottom: -5px;
+  overflow: auto;
+  padding: 10px;
+  margin: 20px;
+}
+.h1 {
+  text-align: center;
+  float: center;
+  font-size: 36px;
+}
+.h3 {
+  text-align: center;
+  float: center;
+  font-size: 30px;
 }

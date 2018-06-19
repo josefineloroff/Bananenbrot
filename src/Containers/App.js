@@ -1,111 +1,147 @@
 import React, { Component } from 'react'
-import Products from '../Components/Products/Products'
-import Product from '../Components/Products/Product/Product'
-import MySwiper from '../Components/Swiper/MySwiper'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-import DontPanic from '../Images/DontPanic.jpg'
-import R2D2 from '../Images/R2D2.jpg'
-import Gameboy from '../Images/Gameboy.jpg'
+import Bookmarklist from '../components/Bookmarks/Bookmarklist'
+import StartPage from '../components/StartPage'
+import MyNavbar from '../components/Navbar/MyNavbar'
+
+import '../styles/index.css'
+
+import DontPanic from '../../src/assets/images/DontPanic.jpg'
+import R2D2 from '../../src/assets/images/R2D2.jpg'
+import Gameboy from '../../src/assets/images/Gameboy.jpg'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
+  state = {
+    selectedIndex: 0,
+    showBookmarkIcon: true,
+    filter: false,
+    products: [
+      {
+        category: 'Mode aus aller Welt',
+        name: 'T-Shirt mit schickem Muster',
+        image: DontPanic,
+        descriptionText:
+          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet',
+        id: 1,
+        index: 0,
+        showBookmarkIcon: true,
+        likes: 0,
+      },
 
-    this.state = {
-      selectedIndex: 0,
+      {
+        category: 'Mode',
+        name: 'T-Shirt 2',
+        image: R2D2,
+        descriptionText: 'bluh bluh',
+        id: 2,
+        index: 1,
+        showBookmarkIcon: true,
+        likes: 0,
+      },
 
-      products: [
-        {
-          category: 'Mode',
-          name: 'T-Shirt',
-          image: DontPanic,
-          descriptionText: 'blah blah',
-          id: 1,
-          index: 0,
-        },
+      {
+        category: 'Mode',
+        name: 'T-Shirt 3',
+        image: Gameboy,
+        descriptionText: 'bloh bloh',
+        id: 3,
+        index: 2,
+        showBookmarkIcon: true,
+        likes: 0,
+      },
 
-        {
-          category: 'Mode',
-          name: 'T-Shirt 2',
-          image: R2D2,
-          descriptionText: 'bluh bluh',
-          id: 2,
-          index: 1,
-        },
+      {
+        category: 'Mode',
+        name: 'T-Shirt',
+        image: DontPanic,
+        descriptionText: 'blah blah',
+        id: 4,
+        index: 3,
+        showBookmarkIcon: true,
+        likes: 0,
+      },
 
-        {
-          category: 'Mode',
-          name: 'T-Shirt 3',
-          image: Gameboy,
-          descriptionText: 'bloh bloh',
-          id: 3,
-          index: 2,
-        },
+      {
+        category: 'Mode',
+        name: 'T-Shirt 2',
+        image: R2D2,
+        descriptionText: 'bluh bluh',
+        id: 5,
+        index: 4,
+        showBookmarkIcon: true,
+        likes: 0,
+      },
 
-        {
-          category: 'Mode',
-          name: 'T-Shirt',
-          image: DontPanic,
-          descriptionText: 'blah blah',
-          id: 4,
-          index: 3,
-        },
+      {
+        category: 'Mode',
+        name: 'T-Shirt 3',
+        image: Gameboy,
+        descriptionText: 'bloh bloh',
+        id: 6,
+        index: 5,
+        showBookmarkIcon: true,
+        likes: 0,
+      },
+    ],
+  }
+  increaseLikes(id) {
+    const foundProductIndex = this.state.products.findIndex(
+      quote => quote.id === id
+    )
+    const foundProduct = this.state.products[foundProductIndex]
+    const startOfNewArray = this.state.products.slice(0, foundProductIndex)
+    const endOfNewArray = this.state.products.slice(foundProductIndex + 1)
+    const newObject = { ...foundProduct, likes: foundProduct.likes + 1 }
 
-        {
-          category: 'Mode',
-          name: 'T-Shirt 2',
-          image: R2D2,
-          descriptionText: 'bluh bluh',
-          id: 5,
-          index: 4,
-        },
-
-        {
-          category: 'Mode',
-          name: 'T-Shirt 3',
-          image: Gameboy,
-          descriptionText: 'bloh bloh',
-          id: 6,
-          index: 5,
-        },
-      ],
-    }
+    this.setState({
+      products: [...startOfNewArray, newObject, ...endOfNewArray],
+    })
   }
 
-  // swipeProducts = () => {
-  //   let mySwiper = new Swiper('.swiper-container', {
-  //     speed: 400,
-  //     spaceBetween: 100
-  //   });
-  // }
+  bookmark = id => {
+    const foundProductIndex = this.state.products.findIndex(
+      product => product.id === id
+    )
 
-  // changeProductRight = (id) => {
-  //   let products = this.state.products
-  //   let productIndex = this.state.products.findIndex(prod => {
-  //     this.setState({ index: (this.state.index + 1) % products.length })
-  //     //return prod.id === id
-  //   })
-  //   const product = {
-  //     ...this.state.products[productIndex]
-  //   }
+    const foundProduct = this.state.products[foundProductIndex]
 
-  // };
+    const startOfNewArray = this.state.products.slice(0, foundProductIndex)
+    const endOfNewArray = this.state.products.slice(foundProductIndex + 1)
+    const newObject = {
+      ...foundProduct,
+      isBookmarked: !foundProduct.isBookmarked,
+      showBookmarkIcon: false,
+    }
 
-  changeProductRight = () => {
-    let products = [...this.state.products]
-    this.setState({ index: (this.state.index + 1) % products.length })
+    this.setState({
+      products: [...startOfNewArray, newObject, ...endOfNewArray],
+    })
+  }
+
+  toggleFilter = () => {
+    this.setState({
+      filter: !this.state.filter,
+    })
   }
 
   render() {
     return (
-      <div>
-        <MySwiper
-          goPrev={this.changeProductLeft}
-          goNext={this.changeProductRight}
-        >
-          <Products products={this.state.products} />
-        </MySwiper>
-      </div>
+      <Router>
+        <div>
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <StartPage state={this.state} onBookmark={this.bookmark} />
+            )}
+          />
+          <Route
+            path="/bookmarklist"
+            render={() => <Bookmarklist state={this.state} />}
+          />
+        </div>
+      </Router>
     )
   }
 }
