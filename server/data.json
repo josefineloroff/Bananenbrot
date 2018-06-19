@@ -6,9 +6,9 @@
   "filter": false,
   "products": [
     {
-      "category": "Just for Geeks",
+      "category": "Just for my Geeks",
       "name": "Rick and Morty go hitchhiking through the galaxy",
-      "image": DontPanic,
+      "image": "/static/media/DontPanic.b8945a11.jpg",
       "descriptionText":
         "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
       "id": 1,
@@ -22,11 +22,10 @@
       "isBookmarked": 0,
       "isTrashed": 0
     },
-
     {
       "category": "Mode",
       "name": "T-Shirt 2",
-      "image": R2D2,
+      "image": "/static/media/R2D2.ebbd674f.jpg",
       "descriptionText": "bluh bluh",
       "id": 2,
       "index": 1,
@@ -39,11 +38,10 @@
       "isBookmarked": 0,
       "isTrashed": 0
     },
-
     {
       "category": "Mode",
       "name": "T-Shirt 3",
-      "image": Gameboy,
+      "image": "/static/media/Gameboy.f158721e.jpg",
       "descriptionText": "bloh bloh",
       "id": 3,
       "index": 2,
@@ -56,11 +54,10 @@
       "isBookmarked": 0,
       "isTrashed": 0
     },
-
     {
       "category": "Mode",
       "name": "T-Shirt",
-      "image": DontPanic,
+      "image": "/static/media/DontPanic.b8945a11.jpg",
       "descriptionText": "blah blah",
       "id": 4,
       "index": 3,
@@ -73,11 +70,10 @@
       "isBookmarked": 0,
       "isTrashed": 0
     },
-
     {
       "category": "Mode",
       "name": "T-Shirt 2",
-      "image": R2D2,
+      "image": "/static/media/R2D2.ebbd674f.jpg",
       "descriptionText": "bluh bluh",
       "id": 5,
       "index": 4,
@@ -90,11 +86,10 @@
       "isBookmarked": 0,
       "isTrashed": 0
     },
-
     {
       "category": "Mode",
       "name": "T-Shirt 3",
-      "image": Gameboy,
+      "image": "/static/media/Gameboy.f158721e.jpg",
       "descriptionText": "bloh bloh",
       "id": 6,
       "index": 5,

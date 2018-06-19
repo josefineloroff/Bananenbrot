@@ -2,17 +2,24 @@
   "name": "bananenbrot",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "ajv": "^6.5.1",
     "babel-browser": "^6.1.19",
     "babel-loader": "^7.1.4",
     "bootstrap": "^4.1.1",
+    "cookie-parser": "~1.4.3",
     "create-react-class": "^15.6.3",
-    "deploy": "npm run build && cd build && rm static/{css,js}/*.map && now --public",
+    "debug": "~2.6.9",
     "emotion": "^9.2.3",
+    "express": "~4.16.0",
     "grid": "^3.3.7",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
     "local": "^0.3.3",
     "local-storage": "^1.4.2",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.17.5",
     "prettier": "^1.13.4",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -30,14 +37,17 @@
     "webpack": "^3.11.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start & npm run start-server",
+    "start-server": "PORT=3001 nodemon ./server/bin/www",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "express-generator": "^4.16.0"
+  },
   "author": "Josefine Loroff",
   "license": "ISC",
   "repository": {

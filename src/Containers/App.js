@@ -125,6 +125,17 @@ class App extends Component {
     ],
   }
 
+  componentDidMount() {
+    fetch('/state', {
+      method: 'GET',
+      headers: { 'content-type': 'application/json' },
+    })
+      .then(res => res.json())
+      .then(state => {
+        this.setState({ ...state })
+      })
+  }
+
   trash = id => {
     const foundProductIndex = this.state.products.findIndex(
       product => product.id === id
