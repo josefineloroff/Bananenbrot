@@ -34,7 +34,7 @@ export default class Example extends React.Component {
       <div>
         <Navbar color="light" light expand="md" className="navbar">
           <RouterLink to="/">
-            <NavbarBrand className="text-info">BANANENBROT</NavbarBrand>
+            <NavbarBrand className="brand text-info">BANANENBROT</NavbarBrand>
           </RouterLink>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -66,6 +66,16 @@ export default class Example extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem className="text-info">Account</DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem className="text-info">
+                    <RouterLink className="text-info" to="/inputformular">
+                      Inventor Upload
+                    </RouterLink>
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem className="text-info">
+                    Inventor View
+                  </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem className="text-info">Logout</DropdownItem>
                 </DropdownMenu>
