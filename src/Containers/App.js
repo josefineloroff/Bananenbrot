@@ -8,10 +8,6 @@ import Trashlist from '../components/Trashes/Trashlist'
 
 import '../styles/index.css'
 
-import DontPanic from '../../src/assets/images/DontPanic.jpg'
-import R2D2 from '../../src/assets/images/R2D2.jpg'
-import Gameboy from '../../src/assets/images/Gameboy.jpg'
-
 class App extends Component {
   state = {
     selectedIndex: 0,
@@ -19,110 +15,7 @@ class App extends Component {
     showLikeIcon: true,
     showTrashIcon: true,
     filter: false,
-    products: [
-      {
-        category: 'Just for Geeks',
-        name: 'Rick and Morty go hitchhiking through the galaxy',
-        image: DontPanic,
-        descriptionText:
-          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet',
-        id: 1,
-        index: 0,
-        showBookmarkIcon: true,
-        showLikeIcon: true,
-        showTrashIcon: true,
-        likes: 0,
-        trashes: 0,
-        isLiked: 0,
-        isBookmarked: 0,
-        isTrashed: 0,
-      },
-
-      {
-        category: 'Mode',
-        name: 'T-Shirt 2',
-        image: R2D2,
-        descriptionText: 'bluh bluh',
-        id: 2,
-        index: 1,
-        showBookmarkIcon: true,
-        showLikeIcon: true,
-        showTrashIcon: true,
-        likes: 0,
-        trashes: 0,
-        isLiked: 0,
-        isBookmarked: 0,
-        isTrashed: 0,
-      },
-
-      {
-        category: 'Mode',
-        name: 'T-Shirt 3',
-        image: Gameboy,
-        descriptionText: 'bloh bloh',
-        id: 3,
-        index: 2,
-        showBookmarkIcon: true,
-        showLikeIcon: true,
-        showTrashIcon: true,
-        likes: 0,
-        trashes: 0,
-        isLiked: 0,
-        isBookmarked: 0,
-        isTrashed: 0,
-      },
-
-      {
-        category: 'Mode',
-        name: 'T-Shirt',
-        image: DontPanic,
-        descriptionText: 'blah blah',
-        id: 4,
-        index: 3,
-        showBookmarkIcon: true,
-        showLikeIcon: true,
-        showTrashIcon: true,
-        likes: 0,
-        trashes: 0,
-        isLiked: 0,
-        isBookmarked: 0,
-        isTrashed: 0,
-      },
-
-      {
-        category: 'Mode',
-        name: 'T-Shirt 2',
-        image: R2D2,
-        descriptionText: 'bluh bluh',
-        id: 5,
-        index: 4,
-        showBookmarkIcon: true,
-        showLikeIcon: true,
-        showTrashIcon: true,
-        likes: 0,
-        trashes: 0,
-        isLiked: 0,
-        isBookmarked: 0,
-        isTrashed: 0,
-      },
-
-      {
-        category: 'Mode',
-        name: 'T-Shirt 3',
-        image: Gameboy,
-        descriptionText: 'bloh bloh',
-        id: 6,
-        index: 5,
-        showBookmarkIcon: true,
-        showLikeIcon: true,
-        showTrashIcon: true,
-        likes: 0,
-        trashes: 0,
-        isLiked: 0,
-        isBookmarked: 0,
-        isTrashed: 0,
-      },
-    ],
+    products: [],
   }
 
   componentDidMount() {
@@ -132,7 +25,7 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(state => {
-        this.setState({ ...state })
+        this.setState({ products: [...state.products] })
       })
   }
 
