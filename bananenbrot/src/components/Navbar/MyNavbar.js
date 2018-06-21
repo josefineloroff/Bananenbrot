@@ -1,5 +1,9 @@
 import React from 'react'
 import './MyNavbar.css'
+import { RegistrationForm } from 'react-stormpath'
+import { LoginForm } from 'react-stormpath'
+import DocumentTitle from 'react-document-title'
+
 import { Link, LoginLink, NavLink as RouterLink } from 'react-router-dom'
 import {
   Collapse,
@@ -64,20 +68,11 @@ export default class Example extends React.Component {
                   Privacy
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem className="text-info">Login</DropdownItem>
-                  <NotAuthenticated>
-                    <li>
-                      <LoginLink />
-                    </li>
-                  </NotAuthenticated>
+                  <DropdownItem className="text-info">Login </DropdownItem>
+
                   <DropdownItem className="text-info">
-                    Registration
+                    Registration{' '}
                   </DropdownItem>
-                  <NotAuthenticated>
-                    <li>
-                      <Link to="/register">Create Account</Link>
-                    </li>
-                  </NotAuthenticated>
 
                   <DropdownItem className="text-info">Account</DropdownItem>
                   <DropdownItem divider />

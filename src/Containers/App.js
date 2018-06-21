@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, LoginRoute } from 'react-router-dom'
+
+import LoginPage from '../components/Authentication/LoginPage'
+import RegistrationPage from '../components/Authentication/RegistrationPage'
 
 import StartPage from '../components/StartPage'
 import Bookmarklist from '../components/Bookmarks/Bookmarklist'
@@ -97,6 +100,9 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <Route path="/login" component={LoginPage} />
+          <Route path="/register" component={RegistrationPage} />
+
           <Route
             path="/"
             exact
