@@ -4,6 +4,21 @@
   "showLikeIcon": true,
   "showTrashIcon": true,
   "filter": false,
+
+  "users": [
+    {
+      "_id": "inventor-database.chef",
+      "user": "chef",
+      "db": "inventor-database",
+      "roles": [
+        {
+          "role": "dbOwner",
+          "db": "inventor-database"
+        }
+      ]
+    }
+  ],
+
   "products": [
     {
       "category": "Just for my Geeks",
