@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ajv": "^6.5.1",
+    "axios": "^0.18.0",
     "babel-browser": "^6.1.19",
     "babel-loader": "^7.1.4",
     "bootstrap": "^4.1.1",
@@ -10,6 +12,8 @@
     "deploy": "npm run build && cd build && rm static/{css,js}/*.map && now --public",
     "emotion": "^9.2.3",
     "grid": "^3.3.7",
+    "local": "^0.3.3",
+    "local-storage": "^1.4.2",
     "prettier": "^1.13.4",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -22,8 +26,13 @@
     "react-scripts": "^1.1.4",
     "react-slider-swiper": "^2.0.6",
     "reactstrap": "^6.1.0",
+    "storage": "^0.2.0",
     "swiper": "^4.3.3",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "express": "4.16.2",
+    "mongoose": "5.0.1",
+    "nodemon": "1.14.11",
+    "open-iconic": "1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

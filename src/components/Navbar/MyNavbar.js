@@ -1,6 +1,7 @@
 import React from 'react'
-import { NavLink as RouterLink } from 'react-router-dom'
 import './MyNavbar.css'
+
+import { NavLink as RouterLink } from 'react-router-dom'
 import {
   Collapse,
   Navbar,
@@ -31,9 +32,9 @@ export default class Example extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <Navbar color="light" light expand="md" className="navbar">
           <RouterLink to="/">
-            <NavbarBrand className="text-info">BANANENBROT</NavbarBrand>
+            <NavbarBrand className="brand text-info">BANANENBROT</NavbarBrand>
           </RouterLink>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -65,6 +66,16 @@ export default class Example extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem className="text-info">Account</DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem className="text-info">
+                    <RouterLink className="text-info" to="/inputformular">
+                      Inventor Upload
+                    </RouterLink>
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem className="text-info">
+                    Inventor View
+                  </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem className="text-info">Logout</DropdownItem>
                 </DropdownMenu>

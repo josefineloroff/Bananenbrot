@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import StartPage from '../components/StartPage'
 import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 import Likelist from '../components/Likes/Likelist'
 import Trashlist from '../components/Trashes/Trashlist'
+import Inputformular from '../components/InventorUpload/Inputformular'
 
 import '../styles/index.css'
 
@@ -12,7 +13,7 @@ import DontPanic from '../../src/assets/images/DontPanic.jpg'
 import R2D2 from '../../src/assets/images/R2D2.jpg'
 import Gameboy from '../../src/assets/images/Gameboy.jpg'
 
-class App extends Component {
+class App extends PureComponent {
   state = {
     selectedIndex: 0,
     showBookmarkIcon: true,
@@ -21,8 +22,8 @@ class App extends Component {
     filter: false,
     products: [
       {
-        category: 'Mode aus aller Welt',
-        name: 'T-Shirt mit schickem Muster',
+        category: 'Just for Geeks',
+        name: 'Rick and Morty go hitchhiking through the galaxy',
         image: DontPanic,
         descriptionText:
           'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet',
@@ -219,6 +220,11 @@ class App extends Component {
           <Route
             path="/trashlist"
             render={() => <Trashlist state={this.state} />}
+          />
+
+          <Route
+            path="/inputformular"
+            render={() => <Inputformular state={this.state} />}
           />
         </div>
       </Router>
