@@ -1,6 +1,6 @@
 import React from 'react'
 import DocumentTitle from 'react-document-title'
-import { LoginForm } from 'react-stormpath'
+// import { LoginForm } from 'express-stormpath'
 
 export default class LoginPage extends React.Component {
   render() {
@@ -13,7 +13,6 @@ export default class LoginPage extends React.Component {
               <hr />
             </div>
           </div>
-          <LoginForm />
         </div>
       </DocumentTitle>
     )

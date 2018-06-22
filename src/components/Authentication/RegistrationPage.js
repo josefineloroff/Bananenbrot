@@ -1,6 +1,6 @@
 import React from 'react'
 import DocumentTitle from 'react-document-title'
-import { RegistrationForm } from 'react-stormpath'
+// import { RegistrationForm } from 'express-stormpath'
 
 export default class RegistrationPage extends React.Component {
   render() {
@@ -13,7 +13,6 @@ export default class RegistrationPage extends React.Component {
               <hr />
             </div>
           </div>
-          <RegistrationForm />
         </div>
       </DocumentTitle>
     )

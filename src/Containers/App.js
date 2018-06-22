@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, LoginRoute } from 'react-router-dom'
 
-import LoginPage from '../components/Authentication/LoginPage'
+import Inputformular from '../components/InventorUpload/Inputformular'
 import RegistrationPage from '../components/Authentication/RegistrationPage'
 
 import StartPage from '../components/StartPage'
@@ -22,13 +22,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('/state', {
+    fetch('/product', {
       method: 'GET',
       headers: { 'content-type': 'application/json' },
     })
       .then(res => res.json())
-      .then(state => {
-        this.setState({ products: [...state.products] })
+      .then(products => {
+        this.setState({ products: products.map(p => ({ ...p, id: p._id })) })
       })
   }
 
@@ -100,7 +100,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route path="/login" component={LoginPage} />
+          <Route path="/login" component={Inputformular} />
           <Route path="/register" component={RegistrationPage} />
 
           <Route

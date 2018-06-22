@@ -30,7 +30,7 @@ export default class Example extends React.Component {
   }
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Navbar color="light" light expand="md" className="navbar">
           <RouterLink to="/">
             <NavbarBrand className="text-info">BANANENBROT</NavbarBrand>
@@ -65,19 +65,10 @@ export default class Example extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem className="text-info">Login</DropdownItem>
-                  <NotAuthenticated>
-                    <li>
-                      <LoginLink />
-                    </li>
-                  </NotAuthenticated>
+
                   <DropdownItem className="text-info">
                     Registration
                   </DropdownItem>
-                  <NotAuthenticated>
-                    <li>
-                      <Link to="/register">Create Account</Link>
-                    </li>
-                  </NotAuthenticated>
 
                   <DropdownItem className="text-info">Account</DropdownItem>
                   <DropdownItem divider />
@@ -87,7 +78,7 @@ export default class Example extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-      </div>
+      </React.Fragment>
     )
   }
 }
