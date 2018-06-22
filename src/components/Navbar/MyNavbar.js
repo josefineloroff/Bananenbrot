@@ -1,7 +1,6 @@
 import React from 'react'
 import './MyNavbar.css'
-
-import { NavLink as RouterLink } from 'react-router-dom'
+import { Link, LoginLink, NavLink as RouterLink } from 'react-router-dom'
 import {
   Collapse,
   Navbar,
@@ -31,7 +30,7 @@ export default class Example extends React.Component {
   }
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Navbar color="light" light expand="md" className="navbar">
           <RouterLink to="/">
             <NavbarBrand className="brand text-info">BANANENBROT</NavbarBrand>
@@ -65,6 +64,12 @@ export default class Example extends React.Component {
                   Privacy
                 </DropdownToggle>
                 <DropdownMenu right>
+                  <DropdownItem className="text-info">Login</DropdownItem>
+
+                  <DropdownItem className="text-info">
+                    Registration
+                  </DropdownItem>
+
                   <DropdownItem className="text-info">Account</DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem className="text-info">
@@ -83,7 +88,7 @@ export default class Example extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-      </div>
+      </React.Fragment>
     )
   }
 }

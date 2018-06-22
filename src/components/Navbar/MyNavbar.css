@@ -18,3 +18,11 @@
   margin-right: 10px;
   margin-top: 8px;
 }
+.navbar {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 200;
+}
+

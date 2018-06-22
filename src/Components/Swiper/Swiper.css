@@ -14,6 +14,7 @@
  */
 
 .swiper-container {
+  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -179,7 +180,7 @@
   -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   z-index: 10;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   margin-top: 10px;
   padding-bottom: 5px;
   padding-top: 5px;
@@ -222,7 +223,7 @@ button.swiper-pagination-bullet {
 }
 .swiper-pagination-bullet-active {
   opacity: 1;
-  background: #007aff;
+  background: #17a2b8;
 }
 .swiper-pagination-white .swiper-pagination-bullet-active {
   background: #fff;
@@ -256,7 +257,7 @@ button.swiper-pagination-bullet {
   position: absolute;
 }
 .swiper-pagination-progress .swiper-pagination-progressbar {
-  background: #007aff;
+  background: #17a2b8;
   position: absolute;
   left: 0;
   top: 0;

@@ -16,10 +16,6 @@ export default class MySwiper extends Component {
       },
       spaceBetween: 30,
     }
-    return (
-      <div>
-        <Swiper {...params}>{this.props.children}</Swiper>
-      </div>
-    )
+    return <Swiper {...params}>{this.props.children}</Swiper>
   }
 }
