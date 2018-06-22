@@ -2,6 +2,10 @@ import React, { PureComponent } from 'react'
 import MyNavbar from '../Navbar/MyNavbar'
 import { saveFullState } from '../../service'
 import { CustomInput, Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import Upload from './Upload'
+import MyNavbar from '../Navbar/MyNavbar'
+
+import './Inputformular.css'
 
 export default class Inputformular extends PureComponent {
   constructor(props) {
@@ -20,6 +24,13 @@ export default class Inputformular extends PureComponent {
     console.log('')
     const input = event.target
     this.setState({ [input.name]: input.value })
+    this.state = { value: this.props.category }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value })
   }
 
   handleSubmit(event) {
@@ -52,6 +63,7 @@ export default class Inputformular extends PureComponent {
         })
       }
     )
+
   }
 
   render() {
@@ -59,6 +71,7 @@ export default class Inputformular extends PureComponent {
       <div>
         <MyNavbar />
         <div className="form">
+
           <Form onSubmit={this.handleSubmit}>
             <Label>
               <p>Choose your category:</p>{' '}
@@ -102,6 +115,35 @@ export default class Inputformular extends PureComponent {
             <br />
             <Button>Submit</Button>
           </Form>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              <p>Choose your category:</p>{' '}
+              <select value={this.state.value} onChange={this.handleChange}>
+                <option value={this.props.category} />
+                <option value={this.props.category}>
+                  {this.props.category}
+                </option>
+                <option value={this.props.category}>
+                  {this.props.category}
+                </option>
+                <option value={this.props.category}>
+                  {this.props.category}
+                </option>
+              </select>
+            </label>{' '}
+            <br />
+            <input type="submit" value="Submit" />
+          </form>
+          <br />
+          <p>Add the name of your product</p>
+          <input type="text" addName={this.onChange} />
+          <br />
+          <br />
+          <p>Add a description text for your product</p>
+          <input type="text" addDescriptionText={this.onChange} />
+          <br />
+          <br />
+          <Upload />
         </div>
       </div>
     )

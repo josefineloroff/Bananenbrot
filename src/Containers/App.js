@@ -3,15 +3,25 @@ import { BrowserRouter as Router, Route, LoginRoute } from 'react-router-dom'
 
 import Inputformular from '../components/InventorUpload/Inputformular'
 import RegistrationPage from '../components/Authentication/RegistrationPage'
+import React, { PureComponent } from 'react'
 
 import StartPage from '../components/StartPage'
 import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 import Likelist from '../components/Likes/Likelist'
 import Trashlist from '../components/Trashes/Trashlist'
+import Inputformular from '../components/InventorUpload/Inputformular'
 
 import '../styles/index.css'
 
+import DontPanic from '../../src/assets/images/DontPanic.jpg'
+import R2D2 from '../../src/assets/images/R2D2.jpg'
+import Gameboy from '../../src/assets/images/Gameboy.jpg'
+
+
 class App extends Component {
+
+  
+class App extends PureComponent {
   state = {
     selectedIndex: 0,
     showBookmarkIcon: true,
@@ -129,6 +139,11 @@ class App extends Component {
           <Route
             path="/trashlist"
             render={() => <Trashlist state={this.state} />}
+          />
+
+          <Route
+            path="/inputformular"
+            render={() => <Inputformular state={this.state} />}
           />
         </div>
       </Router>
