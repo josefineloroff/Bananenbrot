@@ -37,28 +37,32 @@ export default class Inputformular extends PureComponent {
         ...this.state,
       },
       () => {
+        const formData = new FormData()
+        const dataObj = {
+          category: this.state.category,
+          name: this.state.name,
+          imageUrl: this.state.imageUrl,
+          file: this.state.file,
+          descriptionText: this.state.descriptionText,
+          showBookmarkIcon: true,
+          showLikeIcon: true,
+          showTrashIcon: true,
+          likes: 0,
+          trashes: 0,
+          isLiked: 0,
+          isBookmarked: 0,
+          isTrashed: 0,
+          key: this.state.name,
+        }
+        Object.keys(dataObj).forEach(key => {
+          const value = dataObj[key]
+          formData.append(key, value)
+        })
+
         saveFullState(this.state)
         fetch('/product', {
           method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify({
-            category: this.state.category,
-            name: this.state.name,
-            imageUrl: this.state.imageUrl,
-            file: this.state.file,
-            descriptionText: this.state.descriptionText,
-            showBookmarkIcon: true,
-            showLikeIcon: true,
-            showTrashIcon: true,
-            likes: 0,
-            trashes: 0,
-            isLiked: 0,
-            isBookmarked: 0,
-            isTrashed: 0,
-            key: this.state.name,
-          }),
+          body: formData,
         })
       }
     )

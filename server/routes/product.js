@@ -1,6 +1,9 @@
-let Product = require('../models/Product')
+const Product = require('../models/Product')
 const express = require('express')
 const router = express.Router()
+const uid = require('uid')
+const path = require('path')
+const fs = require('fs')
 
 router.get('/', function(req, res) {
   Product.find({}).exec((err, data) => res.send(data))
@@ -18,10 +21,25 @@ router.get('/product/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const product = req.body
+  const file = req.files.file
+  const originalName = file.name
+  const fileName = `${uid(7)}.${originalName.split('.')[1]}`
+  const targetPath = path.resolve(__dirname, '../uploads', fileName)
 
-  new Product(product).save()
-  res.send('product added')
+  fs.writeFile(targetPath, file.data, err => {
+    const product = req.body
+    console.log(product)
+    if (err) {
+      res.end(err.message)
+    } else {
+      new Product({ ...product, imageUrl: targetPath }).save(err => {
+        if (err) {
+          res.end(err.message)
+        }
+        res.json({ message: 'ok' })
+      })
+    }
+  })
 })
 
 router.post('/s', (req, res) => {
