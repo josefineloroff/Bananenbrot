@@ -1,11 +1,10 @@
 import React from 'react'
 import './MyNavbar.css'
-import { Link, LoginLink, NavLink as RouterLink } from 'react-router-dom'
+import { NavLink as RouterLink } from 'react-router-dom'
 import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   UncontrolledDropdown,
@@ -32,8 +31,8 @@ export default class Example extends React.Component {
     return (
       <React.Fragment>
         <Navbar color="light" light expand="md" className="navbar">
-          <RouterLink to="/">
-            <NavbarBrand className="brand text-info">BANANENBROT</NavbarBrand>
+          <RouterLink className="brand text-info" to="/">
+            BANANENBROT
           </RouterLink>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -64,13 +63,23 @@ export default class Example extends React.Component {
                   Privacy
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem className="text-info">Login</DropdownItem>
-
-                  <DropdownItem className="text-info">
-                    Registration
+                  <DropdownItem>
+                    <RouterLink className="text-info" to="/loginpage">
+                      Login
+                    </RouterLink>
                   </DropdownItem>
 
-                  <DropdownItem className="text-info">Account</DropdownItem>
+                  <DropdownItem>
+                    <RouterLink className="text-info" to="/registrationpage">
+                      Registration
+                    </RouterLink>
+                  </DropdownItem>
+
+                  <DropdownItem>
+                    <RouterLink className="text-info" to="/profilepage">
+                      Account
+                    </RouterLink>
+                  </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem className="text-info">
                     <RouterLink className="text-info" to="/inputformular">

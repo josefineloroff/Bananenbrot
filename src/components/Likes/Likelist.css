@@ -1,6 +1,7 @@
 .ul-likelist {
   width: 100%;
   list-style-type: unset;
+  margin-top: 80px;
 }
 
 .li-likelist {
@@ -8,6 +9,7 @@
   height: auto;
   break-after: always;
   margin-top: 20px;
+  margin-left: -40px;
 }
 
 .likelist {
@@ -29,13 +31,11 @@
   box-shadow: 1px 2px 3px #ccc;
   overflow: auto;
   padding: 10px;
-  margin: 10px;
-  margin-left: 10px;
 }
 .ul-likelist .li-likelist .h1 {
   font-size: 16px;
   float: left;
-  width: 100px;
+  margin-right: 10px;
   margin-left: 10px;
   break-after: always;
   break-before: always;
@@ -45,5 +45,5 @@
   float: left;
   break-after: always;
   break-before: always;
-  width: 100px;
+  margin-left: 20px;
 }

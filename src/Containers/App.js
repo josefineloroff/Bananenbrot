@@ -1,27 +1,20 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, LoginRoute } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Inputformular from '../components/InventorUpload/Inputformular'
-import RegistrationPage from '../components/Authentication/RegistrationPage'
-import React, { PureComponent } from 'react'
 
 import StartPage from '../components/StartPage'
+import LoginPage from '../components/Authentication/LoginPage'
+import ProfilePage from '../components/Authentication/ProfilePage'
+import RegistrationPage from '../components/Authentication/RegistrationPage'
+
 import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 import Likelist from '../components/Likes/Likelist'
 import Trashlist from '../components/Trashes/Trashlist'
-import Inputformular from '../components/InventorUpload/Inputformular'
 
 import '../styles/index.css'
 
-import DontPanic from '../../src/assets/images/DontPanic.jpg'
-import R2D2 from '../../src/assets/images/R2D2.jpg'
-import Gameboy from '../../src/assets/images/Gameboy.jpg'
-
-
 class App extends Component {
-
-  
-class App extends PureComponent {
   state = {
     selectedIndex: 0,
     showBookmarkIcon: true,
@@ -110,9 +103,6 @@ class App extends PureComponent {
     return (
       <Router>
         <div>
-          <Route path="/login" component={Inputformular} />
-          <Route path="/register" component={RegistrationPage} />
-
           <Route
             path="/"
             exact
@@ -140,7 +130,18 @@ class App extends PureComponent {
             path="/trashlist"
             render={() => <Trashlist state={this.state} />}
           />
-
+          <Route
+            path="/loginpage"
+            render={() => <LoginPage state={this.state} />}
+          />
+          <Route
+            path="/profilepage"
+            render={() => <ProfilePage state={this.state} />}
+          />
+          <Route
+            path="/registrationpage"
+            render={() => <RegistrationPage state={this.state} />}
+          />
           <Route
             path="/inputformular"
             render={() => <Inputformular state={this.state} />}

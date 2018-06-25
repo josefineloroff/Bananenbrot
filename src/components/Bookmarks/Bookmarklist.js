@@ -19,7 +19,7 @@ export default class Bookmarklist extends Component {
                     className="bookmarklist"
                     category={product.category}
                     name={product.name}
-                    image={product.image}
+                    imageUrl={product.imageUrl}
                     descriptionText={product.descriptionText}
                     key={product.id}
                     id={product.id}

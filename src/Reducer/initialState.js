@@ -2,6 +2,6 @@ export default {
   category: [],
   product: [],
   productName: [],
-  image: [],
-  description: []
+  imageUrl: [],
+  description: [],
 }

@@ -15,7 +15,6 @@ export default class TrashIcon extends Component {
           className="trashicon"
           icon={trashO}
           style={{ cursor: 'pointer' }}
-          isTrashed={this.props.isTrashed}
         />
       )
     } else {
