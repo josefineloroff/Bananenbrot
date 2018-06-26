@@ -32,7 +32,7 @@ export default class Example extends React.Component {
       <React.Fragment>
         <Navbar color="light" light expand="md" className="navbar">
           <RouterLink className="brand text-info" to="/">
-            BANANENBROT
+            INVENTION-PLACEMENT
           </RouterLink>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
