@@ -1,6 +1,7 @@
 .ul-bookmarklist {
   width: 100%;
   list-style-type: unset;
+  margin-top: 80px;
 }
 
 .li-bookmarklist {
@@ -8,6 +9,58 @@
   height: auto;
   break-after: always;
   margin-top: 20px;
+  margin-left: -40px;
+}
+.ul-bookmarklist {
+  width: 100%;
+  list-style-type: unset;
+  margin-top: 80px;
+}
+
+.li-bookmarklist {
+  width: 100%;
+  height: auto;
+  break-after: always;
+  margin-top: 20px;
+  margin-left: -40px;
+}
+
+.bookmarklist {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.ul-bookmarklist .li-bookmarklist .image-container img {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-right: 10px;
+}
+
+.ul-bookmarklist .li-bookmarklist .description-text {
+  height: 80px;
+  width: auto;
+  border: 1px solid #eee;
+  box-shadow: 1px 2px 3px #ccc;
+  overflow: auto;
+  padding: 10px;
+  font-size: 12px;
+}
+.ul-bookmarklist .li-bookmarklist .h1 {
+  font-size: 12px !important;
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 60px;
+  text-align: left;
+  margin-top: 0px !important;
+}
+
+.ul-bookmarklist .li-bookmarklist .h3 {
+  font-size: 10px !important;
+  float: left;
+  margin-left: 10px;
 }
 
 .bookmarklist {
@@ -29,21 +82,19 @@
   box-shadow: 1px 2px 3px #ccc;
   overflow: auto;
   padding: 10px;
-  margin: 10px;
-  margin-left: 10px;
 }
 .ul-bookmarklist .li-bookmarklist .h1 {
-  font-size: 16px;
+  font-size: 12px !important;
   float: left;
-  width: 100px;
   margin-left: 10px;
+  margin-right: 10px;
   break-after: always;
   break-before: always;
 }
 .ul-bookmarklist .li-bookmarklist .h3 {
-  font-size: 14px;
+  font-size: 10px !important;
   float: left;
   break-after: always;
   break-before: always;
-  width: 100px;
+  margin-left: 20px;
 }

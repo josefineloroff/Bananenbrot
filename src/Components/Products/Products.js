@@ -7,7 +7,8 @@ const products = props =>
       <Product
         category={product.category}
         name={product.name}
-        image={product.image}
+        imageUrl={product.imageUrl}
+        file={product.imageUrl}
         descriptionText={product.descriptionText}
         key={product.id}
         id={product.id}

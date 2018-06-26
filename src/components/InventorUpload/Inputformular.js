@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react'
 import MyNavbar from '../Navbar/MyNavbar'
 import { saveFullState } from '../../service'
-import { CustomInput, Button, Form, FormGroup, Label, Input } from 'reactstrap'
-import Upload from './Upload'
-import MyNavbar from '../Navbar/MyNavbar'
+import { Button, Form, Label, Input } from 'reactstrap'
+import { axios } from 'axios'
 
 import './Inputformular.css'
 
@@ -14,56 +13,59 @@ export default class Inputformular extends PureComponent {
     this.state = {
       category: '',
       name: '',
-      image: '',
+      imageUrl: '',
       descriptionText: '',
+      key: 'id',
+      file: null,
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   onChange = event => {
-    console.log('')
+    console.log(event.target.value)
     const input = event.target
-    this.setState({ [input.name]: input.value })
-    this.state = { value: this.props.category }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    const file = input.files && input.files.length && event.target.files[0]
+    this.setState({
+      [input.name]: input.value,
+      file: file,
+    })
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value })
-  }
-
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault()
     this.setState(
       {
         ...this.state,
       },
       () => {
+        const formData = new FormData()
+        const dataObj = {
+          category: this.state.category,
+          name: this.state.name,
+          imageUrl: this.state.imageUrl,
+          file: this.state.file,
+          descriptionText: this.state.descriptionText,
+          showBookmarkIcon: true,
+          showLikeIcon: true,
+          showTrashIcon: true,
+          likes: 0,
+          trashes: 0,
+          isLiked: 0,
+          isBookmarked: 0,
+          isTrashed: 0,
+          key: this.state.name,
+        }
+        Object.keys(dataObj).forEach(key => {
+          const value = dataObj[key]
+          formData.append(key, value)
+        })
+
         saveFullState(this.state)
         fetch('/product', {
           method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify({
-            category: this.state.category,
-            name: this.state.name,
-            image: this.state.image,
-            descriptionText: this.state.descriptionText,
-            showBookmarkIcon: true,
-            showLikeIcon: true,
-            showTrashIcon: true,
-            likes: 0,
-            trashes: 0,
-            isLiked: 0,
-            isBookmarked: 0,
-            isTrashed: 0,
-          }),
+          body: formData,
         })
       }
     )
-
   }
 
   render() {
@@ -71,7 +73,6 @@ export default class Inputformular extends PureComponent {
       <div>
         <MyNavbar />
         <div className="form">
-
           <Form onSubmit={this.handleSubmit}>
             <Label>
               <p>Choose your category:</p>{' '}
@@ -81,8 +82,10 @@ export default class Inputformular extends PureComponent {
                 value={this.state.category}
                 onChange={this.onChange}
               >
-                {['Mode', 'Just for my Geeks'].map(cat => (
-                  <option value={cat}>{cat}</option>
+                {['Nerds', 'Geeks', 'Retros'].map(cat => (
+                  <option key={cat} value={cat}>
+                    {cat}
+                  </option>
                 ))}
               </Input>
             </Label>{' '}
@@ -95,55 +98,42 @@ export default class Inputformular extends PureComponent {
               name="name"
               onChange={this.onChange}
             />
+            <br />
+            <p>Add a description text for your product</p>
             <Input
               type="text"
               value={this.state.descriptionText}
               name="descriptionText"
               onChange={this.onChange}
             />
+            <br />
+            <p>Image Upload</p>
             <Input
+              // onChange={this.handleUploadFileonChange}
               type="file"
-              value={this.state.image}
-              name="image"
+              value={this.state.imageUrl}
+              name="imageUrl"
               onChange={this.onChange}
+              // type="submit"
+              // value="Submit"
+
+              className="file-upload"
+              data-cloudinary-field="image_id"
+              data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"
             />
-            <br />
-            <br />
-            <p>Add a description text for your product</p>
-            <Input type="text" onChange={this.onChange} />
-            <br />
-            <br />
-            <Button>Submit</Button>
+            <button
+              className="button"
+              type="submit"
+              onClick={this.handleUploadFile}
+            >
+              Upload
+            </button>
+            <Button type="submit" onClick={this.handleUploadFile}>
+              Submit
+            </Button>
           </Form>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              <p>Choose your category:</p>{' '}
-              <select value={this.state.value} onChange={this.handleChange}>
-                <option value={this.props.category} />
-                <option value={this.props.category}>
-                  {this.props.category}
-                </option>
-                <option value={this.props.category}>
-                  {this.props.category}
-                </option>
-                <option value={this.props.category}>
-                  {this.props.category}
-                </option>
-              </select>
-            </label>{' '}
-            <br />
-            <input type="submit" value="Submit" />
-          </form>
+
           <br />
-          <p>Add the name of your product</p>
-          <input type="text" addName={this.onChange} />
-          <br />
-          <br />
-          <p>Add a description text for your product</p>
-          <input type="text" addDescriptionText={this.onChange} />
-          <br />
-          <br />
-          <Upload />
         </div>
       </div>
     )

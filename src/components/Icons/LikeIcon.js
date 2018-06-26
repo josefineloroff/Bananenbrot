@@ -15,7 +15,6 @@ export default class LikeIcon extends Component {
           className="likeicon"
           icon={heartO}
           style={{ cursor: 'pointer' }}
-          isLiked={this.props.isLiked}
         />
       )
     } else {
