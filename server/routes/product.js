@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
   const file = req.files.file
   const originalName = file.name
   const fileName = `${uid(7)}.${originalName.split('.')[1]}`
-  const targetPath = path.resolve(__dirname, '../uploads', fileName)
+  const targetPath = path.resolve(__dirname, '../assets/uploads', fileName)
 
   fs.writeFile(targetPath, file.data, err => {
     const product = req.body
@@ -32,12 +32,14 @@ router.post('/', (req, res) => {
     if (err) {
       res.end(err.message)
     } else {
-      new Product({ ...product, imageUrl: targetPath }).save(err => {
-        if (err) {
-          res.end(err.message)
+      new Product({ ...product, imageUrl: `/uploads/${fileName}` }).save(
+        err => {
+          if (err) {
+            res.end(err.message)
+          }
+          res.json({ message: 'ok' })
         }
-        res.json({ message: 'ok' })
-      })
+      )
     }
   })
 })

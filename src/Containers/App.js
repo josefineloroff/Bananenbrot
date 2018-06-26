@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Inputformular from '../components/InventorUpload/Inputformular'
 
 import StartPage from '../components/StartPage'
-import LoginPage from '../components/Authentication/LoginPage'
-import ProfilePage from '../components/Authentication/ProfilePage'
-import RegistrationPage from '../components/Authentication/RegistrationPage'
+// import LoginPage from '../components/Authentication/LoginPage'
+// import ProfilePage from '../components/Authentication/ProfilePage'
+// import RegistrationPage from '../components/Authentication/RegistrationPage'
 
 import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 import Likelist from '../components/Likes/Likelist'
@@ -130,18 +130,7 @@ class App extends Component {
             path="/trashlist"
             render={() => <Trashlist state={this.state} />}
           />
-          <Route
-            path="/loginpage"
-            render={() => <LoginPage state={this.state} />}
-          />
-          <Route
-            path="/profilepage"
-            render={() => <ProfilePage state={this.state} />}
-          />
-          <Route
-            path="/registrationpage"
-            render={() => <RegistrationPage state={this.state} />}
-          />
+
           <Route
             path="/inputformular"
             render={() => <Inputformular state={this.state} />}
