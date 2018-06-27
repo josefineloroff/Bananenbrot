@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Inputformular from '../components/InventorUpload/Inputformular'
 
 import StartPage from '../components/StartPage'
+import InventorView from '../components/InventorView/InventorView'
+
 // import LoginPage from '../components/Authentication/LoginPage'
 // import ProfilePage from '../components/Authentication/ProfilePage'
 // import RegistrationPage from '../components/Authentication/RegistrationPage'
@@ -65,7 +67,7 @@ class App extends Component {
       ...foundProduct,
       isLiked: !foundProduct.isLiked,
       showLikeIcon: false,
-      //likes: foundProduct.likes + 1,
+      // likes: foundProduct.likes + 1,
     }
 
     this.setState({
@@ -134,6 +136,10 @@ class App extends Component {
           <Route
             path="/inputformular"
             render={() => <Inputformular state={this.state} />}
+          />
+          <Route
+            path="/inventorview"
+            render={() => <InventorView state={this.state} />}
           />
         </div>
       </Router>

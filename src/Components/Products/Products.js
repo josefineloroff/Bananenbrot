@@ -1,7 +1,7 @@
 import React from 'react'
 import Product from './Product/Product'
 
-const products = props =>
+const Products = props =>
   props.products.map((product, index) => {
     return (
       <Product
@@ -25,4 +25,4 @@ const products = props =>
     )
   })
 
-export default products
+export default Products

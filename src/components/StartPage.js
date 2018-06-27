@@ -15,6 +15,9 @@ export default class StartPage extends Component {
             onBookmark={this.props.onBookmark}
             onLike={this.props.onLike}
             onTrash={this.props.onTrash}
+            isBookmarked={this.props.isBookmarked}
+            isLiked={this.props.isLiked}
+            isTrashed={this.props.isTrashed}
           />
         </MySwiper>
       </div>

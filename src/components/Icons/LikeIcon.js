@@ -7,18 +7,18 @@ import { heartO } from 'react-icons-kit/fa/heartO'
 
 export default class LikeIcon extends Component {
   render() {
-    if (this.props.show) {
-      return (
-        <Icon
-          size={'100%'}
-          onClick={e => this.props.onLike(this.props.id)}
-          className="likeicon"
-          icon={heartO}
-          style={{ cursor: 'pointer' }}
-        />
-      )
-    } else {
-      return null
-    }
+    return (
+      <Icon
+        size={'100%'}
+        onClick={e => this.props.onLike(this.props.id)}
+        onLike={e => this.props.isLiked(this.props.id)}
+        className="likeicon"
+        icon={heartO}
+        style={{
+          cursor: 'pointer',
+          color: this.props.show ? '#17a2b8' : '#EE3333',
+        }}
+      />
+    )
   }
 }
