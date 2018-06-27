@@ -11,7 +11,7 @@ export default class LikeIcon extends Component {
       <Icon
         size={'100%'}
         onClick={e => this.props.onLike(this.props.id)}
-        onLike={e => this.props.isLiked(this.props.id)}
+        isLiked={this.props.isLiked}
         className="likeicon"
         icon={heartO}
         style={{

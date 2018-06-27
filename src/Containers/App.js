@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import Inputformular from '../components/InventorUpload/Inputformular'
+import Inputvalue from '../components/InventorUpload/Inputvalue'
 
 import StartPage from '../components/StartPage'
 import InventorView from '../components/InventorView/InventorView'
 
-// import LoginPage from '../components/Authentication/LoginPage'
-// import ProfilePage from '../components/Authentication/ProfilePage'
-// import RegistrationPage from '../components/Authentication/RegistrationPage'
+import Login from '../components/Authentication/Login'
+import Profile from '../components/Authentication/Profile'
+import Registration from '../components/Authentication/Registration'
 
 import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 import Likelist from '../components/Likes/Likelist'
@@ -24,6 +24,16 @@ class App extends Component {
     showTrashIcon: true,
     filter: false,
     products: [],
+
+    person: {
+      name: 'Josefine Loroff',
+      biography:
+        '35 year old Web Developer living in Hamburg. Originally from Berlin, Germany. Love to make stuff.',
+    },
+    quote: {
+      content: "Beautiful things don't ask for attention",
+      source: 'The Secret Life of Walter Mitty',
+    },
   }
 
   componentDidMount() {
@@ -135,11 +145,20 @@ class App extends Component {
 
           <Route
             path="/inputformular"
-            render={() => <Inputformular state={this.state} />}
+            render={() => <Inputvalue state={this.state} />}
           />
           <Route
             path="/inventorview"
             render={() => <InventorView state={this.state} />}
+          />
+          <Route path="/login" render={() => <Login state={this.state} />} />
+          <Route
+            path="/registration"
+            render={() => <Registration state={this.state} />}
+          />
+          <Route
+            path="/profile"
+            render={() => <Profile state={this.state} />}
           />
         </div>
       </Router>
