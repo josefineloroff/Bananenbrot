@@ -33,6 +33,9 @@ body {
 }
 .h2 {
   text-align: center;
-  margin-left: 40px;
+  margin-left: 20px;
   margin-top: 150px;
+}
+.background {
+  height: 100%;
 }
