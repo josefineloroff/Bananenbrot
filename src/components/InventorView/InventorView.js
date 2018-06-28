@@ -25,7 +25,9 @@ export default class extends Component {
                   // onLike={this.props.onLike}
                   // onLiked={() => this.likes(product.id)}
                 />
+                <br />
                 <p>Likes: 5 - Trashes: 6</p>
+                <br />
               </React.Fragment>
             )
           })}

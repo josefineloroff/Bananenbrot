@@ -93,7 +93,11 @@ export default class Example extends React.Component {
                     </RouterLink>
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem className="text-info">Logout</DropdownItem>
+                  <DropdownItem>
+                    <RouterLink className="text-info" to="/logout">
+                      Logout
+                    </RouterLink>
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>

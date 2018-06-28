@@ -10,6 +10,10 @@ body {
   margin: 20px;
   margin-top: 100px;
 }
+.logout {
+  margin: 20px;
+  margin-top: 100px;
+}
 .profile {
   margin: 20px;
   margin-top: 100px;
@@ -23,4 +27,12 @@ body {
 }
 .name {
   color: #17a2b8;
+}
+.logo {
+  margin: 20%;
+}
+.h2 {
+  text-align: center;
+  margin-left: 40px;
+  margin-top: 150px;
 }

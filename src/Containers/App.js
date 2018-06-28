@@ -9,6 +9,7 @@ import InventorView from '../components/InventorView/InventorView'
 import Login from '../components/Authentication/Login'
 import Profile from '../components/Authentication/Profile'
 import Registration from '../components/Authentication/Registration'
+import Logout from '../components/Authentication/Logout'
 
 import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 import Likelist from '../components/Likes/Likelist'
@@ -24,18 +25,7 @@ class App extends Component {
     showTrashIcon: true,
     filter: false,
     products: [],
-
-    person: {
-      name: 'Josefine Loroff',
-      biography:
-        '35 year old Web Developer living in Hamburg. Originally from Berlin, Germany. Love to make stuff.',
-    },
-    quote: {
-      content: "Beautiful things don't ask for attention",
-      source: 'The Secret Life of Walter Mitty',
-    },
   }
-
   componentDidMount() {
     fetch('/product', {
       method: 'GET',
@@ -160,6 +150,7 @@ class App extends Component {
             path="/profile"
             render={() => <Profile state={this.state} />}
           />
+          <Route path="/logout" render={() => <Logout state={this.state} />} />
         </div>
       </Router>
     )

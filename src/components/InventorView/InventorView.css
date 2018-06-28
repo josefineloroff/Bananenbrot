@@ -7,7 +7,6 @@ body {
   width: 100%;
   text-align: center;
   align-items: center;
-  margin-top: 60px !important;
   margin-bottom: 10px;
 }
 img {
@@ -22,4 +21,7 @@ p.description-text {
   overflow: auto;
   padding: 10px;
   margin: 20px;
+}
+p {
+  margin-left: 20px;
 }
