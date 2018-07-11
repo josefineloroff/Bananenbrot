@@ -112,14 +112,10 @@ export default class Inputvalue extends PureComponent {
             <br />
             <p>Image Upload</p>
             <Input
-              // onChange={this.handleUploadFileonChange}
               type="file"
               value={this.state.imageUrl}
               name="imageUrl"
               onChange={this.onChange}
-              // type="submit"
-              // value="Submit"
-
               className="file-upload"
               data-cloudinary-field="image_id"
               data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"
@@ -128,7 +124,7 @@ export default class Inputvalue extends PureComponent {
             <br />
             <Button
               type="submit"
-              onClick={this.handleUploadFile}
+              onClick={this.handleSubmit}
               className="button"
             >
               Submit
