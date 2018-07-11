@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import MyNavbar from '../Navbar/MyNavbar'
 import Product from '../Products/Product/Product'
+import Products from '../Products/Products'
 
 import './Trashlist.css'
+import styled from 'react-emotion'
 
 export default class Trashlist extends Component {
   render() {
@@ -19,7 +22,7 @@ export default class Trashlist extends Component {
                     className="trashlist"
                     category={product.category}
                     name={product.name}
-                    imageUrl={product.imageUrl}
+                    image={product.image}
                     descriptionText={product.descriptionText}
                     key={product.id}
                     id={product.id}

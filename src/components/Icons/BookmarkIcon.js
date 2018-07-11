@@ -7,18 +7,18 @@ import { bookmarkO } from 'react-icons-kit/fa/bookmarkO'
 
 export default class BookmarkIcon extends Component {
   render() {
-    if (this.props.show) {
-      return (
-        <Icon
-          size={'100%'}
-          onClick={e => this.props.onBookmark(this.props.id)}
-          className="bookmarkicon"
-          icon={bookmarkO}
-          style={{ cursor: 'pointer' }}
-        />
-      )
-    } else {
-      return null
-    }
+    return (
+      <Icon
+        size={'100%'}
+        onClick={e => this.props.onBookmark(this.props.id)}
+        onBookmark={e => this.props.isBookmarked(this.props.id)}
+        className="bookmarkicon"
+        icon={bookmarkO}
+        style={{
+          cursor: 'pointer',
+          color: this.props.show ? '#17a2b8' : '#EE3333',
+        }}
+      />
+    )
   }
 }

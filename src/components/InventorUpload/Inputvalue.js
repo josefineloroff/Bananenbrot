@@ -6,7 +6,7 @@ import { axios } from 'axios'
 
 import './Inputformular.css'
 
-export default class Inputformular extends PureComponent {
+export default class Inputvalue extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -72,6 +72,7 @@ export default class Inputformular extends PureComponent {
     return (
       <div>
         <MyNavbar />
+        <br />
         <div className="form">
           <Form onSubmit={this.handleSubmit}>
             <Label>
@@ -99,6 +100,7 @@ export default class Inputformular extends PureComponent {
               onChange={this.onChange}
             />
             <br />
+            <br />
             <p>Add a description text for your product</p>
             <Input
               type="text"
@@ -107,28 +109,24 @@ export default class Inputformular extends PureComponent {
               onChange={this.onChange}
             />
             <br />
+            <br />
             <p>Image Upload</p>
             <Input
-              // onChange={this.handleUploadFileonChange}
               type="file"
               value={this.state.imageUrl}
               name="imageUrl"
               onChange={this.onChange}
-              // type="submit"
-              // value="Submit"
-
               className="file-upload"
               data-cloudinary-field="image_id"
               data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"
             />
-            <button
-              className="button"
+            <br />
+            <br />
+            <Button
               type="submit"
-              onClick={this.handleUploadFile}
+              onClick={this.handleSubmit}
+              className="button"
             >
-              Upload
-            </button>
-            <Button type="submit" onClick={this.handleUploadFile}>
               Submit
             </Button>
           </Form>

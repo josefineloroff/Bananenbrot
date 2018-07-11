@@ -21,10 +21,12 @@ router.get('/product/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+  console.log(req)
   const file = req.files.file
   const originalName = file.name
   const fileName = `${uid(7)}.${originalName.split('.')[1]}`
   const targetPath = path.resolve(__dirname, '../assets/uploads', fileName)
+  console.log(targetPath)
 
   fs.writeFile(targetPath, file.data, err => {
     const product = req.body
@@ -44,15 +46,15 @@ router.post('/', (req, res) => {
   })
 })
 
-router.post('/s', (req, res) => {
-  const products = req.body
-  products.forEach(product => {
-    const { id, ...rest } = product
-    new Product(rest).save()
-  })
+// router.post('/s', (req, res) => {
+//   const products = req.body
+//   products.forEach(product => {
+//     const { id, ...rest } = product
+//     new Product(rest).save()
+//   })
 
-  res.send('products added')
-})
+//   res.send('products added')
+// })
 
 router.put('/product', (req, res) =>
   Product.findOneAndUpdate({ _id: req.body._id }, req.body).exec((err, data) =>

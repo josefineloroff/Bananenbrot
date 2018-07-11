@@ -64,34 +64,40 @@ export default class Example extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    <RouterLink className="text-info" to="/loginpage">
+                    <RouterLink className="text-info" to="/login">
                       Login
                     </RouterLink>
                   </DropdownItem>
 
                   <DropdownItem>
-                    <RouterLink className="text-info" to="/registrationpage">
+                    <RouterLink className="text-info" to="/registration">
                       Registration
                     </RouterLink>
                   </DropdownItem>
 
                   <DropdownItem>
-                    <RouterLink className="text-info" to="/profilepage">
-                      Account
+                    <RouterLink className="text-info" to="/profile">
+                      Profile
                     </RouterLink>
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem className="text-info">
+                  <DropdownItem>
                     <RouterLink className="text-info" to="/inputformular">
                       Inventor Upload
                     </RouterLink>
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem className="text-info">
-                    Inventor View
+                  <DropdownItem>
+                    <RouterLink className="text-info" to="/inventorview">
+                      Inventor View
+                    </RouterLink>
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem className="text-info">Logout</DropdownItem>
+                  <DropdownItem>
+                    <RouterLink className="text-info" to="/logout">
+                      Logout
+                    </RouterLink>
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>

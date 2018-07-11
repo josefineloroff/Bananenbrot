@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-
-import Inputformular from '../components/InventorUpload/Inputformular'
-
+import Inputvalue from '../components/InventorUpload/Inputvalue'
 import StartPage from '../components/StartPage'
-// import LoginPage from '../components/Authentication/LoginPage'
-// import ProfilePage from '../components/Authentication/ProfilePage'
-// import RegistrationPage from '../components/Authentication/RegistrationPage'
-
+import InventorView from '../components/InventorView/InventorView'
+import Login from '../components/Authentication/Login'
+import Profile from '../components/Authentication/Profile'
+import Registration from '../components/Authentication/Registration'
+import Logout from '../components/Authentication/Logout'
 import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 import Likelist from '../components/Likes/Likelist'
 import Trashlist from '../components/Trashes/Trashlist'
@@ -23,7 +22,6 @@ class App extends Component {
     filter: false,
     products: [],
   }
-
   componentDidMount() {
     fetch('/product', {
       method: 'GET',
@@ -65,7 +63,7 @@ class App extends Component {
       ...foundProduct,
       isLiked: !foundProduct.isLiked,
       showLikeIcon: false,
-      //likes: foundProduct.likes + 1,
+      // likes: foundProduct.likes + 1,
     }
 
     this.setState({
@@ -133,8 +131,22 @@ class App extends Component {
 
           <Route
             path="/inputformular"
-            render={() => <Inputformular state={this.state} />}
+            render={() => <Inputvalue state={this.state} />}
           />
+          <Route
+            path="/inventorview"
+            render={() => <InventorView state={this.state} />}
+          />
+          <Route path="/login" render={() => <Login state={this.state} />} />
+          <Route
+            path="/registration"
+            render={() => <Registration state={this.state} />}
+          />
+          <Route
+            path="/profile"
+            render={() => <Profile state={this.state} />}
+          />
+          <Route path="/logout" render={() => <Logout state={this.state} />} />
         </div>
       </Router>
     )

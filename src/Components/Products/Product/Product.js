@@ -27,6 +27,7 @@ export default class Product extends Component {
           <BookmarkIcon
             show={this.props.showBookmarkIcon}
             onBookmark={e => this.props.onBookmark(this.props.id)}
+            //isBookmarked={e => this.props.isBookmarked(this.props.id)}
           />
           <LikeIcon
             show={this.props.showLikeIcon}
@@ -35,6 +36,8 @@ export default class Product extends Component {
           <TrashIcon
             show={this.props.showTrashIcon}
             onTrash={e => this.props.onTrash(this.props.id)}
+            //onTrash={e => this.props.onTrash(this.props.id)}
+            //isTrashed={e => this.props.isTrashed(this.props.id)}
           />
         </div>
       </div>
