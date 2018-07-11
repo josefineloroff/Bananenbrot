@@ -8,7 +8,7 @@
   "users": [
     {
       "_id": "inventor-database.chef",
-      "user": "chef",
+      "user": "chef2",
       "db": "inventor-database",
       "roles": [
         {

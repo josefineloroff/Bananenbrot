@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 var mongoose = require('mongoose')
 var productRouter = require('./routes/product')
+var userRouter = require('./routes/user')
+
 var app = express()
 var fs = require('fs')
 var fileUpload = require('express-fileupload')
@@ -19,7 +21,7 @@ var options = {
 }
 
 var mongodbUri =
-  'mongodb://chef:Schokolade-123@ds163610.mlab.com:63610/inventor-database'
+'mongodb://chef2:Schokolade-123@ds161520.mlab.com:61520/inventor-database'
 mongoose.connect(
   mongodbUri,
   options
@@ -40,19 +42,22 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'build')))
 
 app.use(express.static(path.join(__dirname, 'assets')))
-// app.use(express.static('node_modules'))
-// app.use(
-//   bodyParser({
-//     limit: '50mb',
-//     keepExtensions: true,
-//     uploadDir: __dirname + '/public/uploads',
-//   })
-// )
+ app.use(express.static('node_modules'))
+ app.use(
+   bodyParser({
+     limit: '50mb',
+     keepExtensions: true,
+     uploadDir: __dirname + '/public/uploads',
+   })
+ )
 app.use(
   fileUpload({
     limits: { fileSize: 50 * 1024 * 1024 },
   })
 )
+
+
+app.use ('/user', userRouter)
 
 app.use('/product', productRouter)
 
