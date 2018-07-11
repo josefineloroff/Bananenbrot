@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-
 import Inputvalue from '../components/InventorUpload/Inputvalue'
-
 import StartPage from '../components/StartPage'
 import InventorView from '../components/InventorView/InventorView'
-
 import Login from '../components/Authentication/Login'
 import Profile from '../components/Authentication/Profile'
 import Registration from '../components/Authentication/Registration'
 import Logout from '../components/Authentication/Logout'
-
 import Bookmarklist from '../components/Bookmarks/Bookmarklist'
 import Likelist from '../components/Likes/Likelist'
 import Trashlist from '../components/Trashes/Trashlist'
