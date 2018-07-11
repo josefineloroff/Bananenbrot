@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 var mongoose = require('mongoose')
 var productRouter = require('./routes/product')
+var userRouter = require('./routes/user')
+
 var app = express()
 var fs = require('fs')
 var fileUpload = require('express-fileupload')
@@ -53,6 +55,9 @@ app.use(
     limits: { fileSize: 50 * 1024 * 1024 },
   })
 )
+
+
+app.use ('/user', userRouter)
 
 app.use('/product', productRouter)
 
