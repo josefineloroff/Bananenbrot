@@ -105,16 +105,20 @@ class App extends Component {
             path="/"
             exact
             render={() => (
-              <StartPage
+              <Login
                 state={this.state}
-                onBookmark={this.bookmark}
-                isBookmarked={this.bookmark}
-                onLike={this.like}
-                isLiked={this.like}
-                onTrash={this.trash}
-                isTrashed={this.trash}
+                
               />
             )}
+          />
+          <Route
+            path="/startpage"
+            render={() => <Startpage state={this.state} onBookmark={this.bookmark}
+            isBookmarked={this.bookmark}
+            onLike={this.like}
+            isLiked={this.like}
+            onTrash={this.trash}
+            isTrashed={this.trash}/>}
           />
           <Route
             path="/bookmarklist"
@@ -137,7 +141,6 @@ class App extends Component {
             path="/inventorview"
             render={() => <InventorView state={this.state} />}
           />
-          <Route path="/login" render={() => <Login state={this.state} />} />
           <Route
             path="/registration"
             render={() => <Registration state={this.state} />}
