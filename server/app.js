@@ -1,3 +1,4 @@
+
 const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
@@ -13,6 +14,7 @@ const MongoStore = require('connect-mongo')(session);
 const fs = require('fs')
 const fileUpload = require('express-fileupload')
 const uid = require('uid')
+
 
 //setup MONGO-DB with mongoose
 
@@ -39,13 +41,15 @@ app.use(logger('dev'))
 app.use(express.json())
  // parse incoming requests
 
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())
-app.use(express.static('www'))
+
+app.use(express.static('bin/www'))
 
 // serve static files from template
+
 app.use(express.static(path.join(__dirname, 'build')))
 app.use(express.static(path.join(__dirname, 'assets')))
 app.use(express.static(path.join(__dirname + '../src/components/Authentication/Registration')));
@@ -65,6 +69,7 @@ app.use(
 )
 
 
+
 //use sessions for tracking logins
 app.use(session({
   secret: 'work hard',
@@ -74,11 +79,6 @@ app.use(session({
     mongooseConnection: db
   })
 }));
-
-
-// include routes
-// const routes = require('./routes/user');
-// app.use('/', routes);
 
  // catch 404 and forward to error handler
   app.use(function (req, res, next) {
