@@ -26,9 +26,9 @@ router.get('/user/:id', (req, res) => {
 
 
 // GET route for reading data
-// router.get('/', function (req, res, next) {
-//   return res.sendFile(path.join(__dirname + '../../src/components/Authentication/Registration'));
-// });
+ router.get('/', function (req, res, next) {
+   return res.sendFile(path.join(__dirname + '../../src/components/Authentication/Registration'));
+ });
 
 
 //POST route for updating data
