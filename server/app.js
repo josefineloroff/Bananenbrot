@@ -6,7 +6,6 @@ var logger = require('morgan')
 var mongoose = require('mongoose')
 var productRouter = require('./routes/product')
 var userRouter = require('./routes/user')
-
 var app = express()
 var fs = require('fs')
 var fileUpload = require('express-fileupload')
@@ -37,10 +36,10 @@ db.once('open', function() {
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())
-// app.use(express.static('www'))
+app.use(express.static('bin/www'))
 app.use(express.static(path.join(__dirname, 'build')))
-
 app.use(express.static(path.join(__dirname, 'assets')))
  app.use(express.static('node_modules'))
  app.use(
@@ -58,7 +57,6 @@ app.use(
 
 
 app.use ('/user', userRouter)
-
 app.use('/product', productRouter)
 
 module.exports = app
