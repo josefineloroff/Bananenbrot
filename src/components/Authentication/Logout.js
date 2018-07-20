@@ -8,20 +8,25 @@ export default class Logout extends Component {
     return (
       <div>
         <MyNavbar />
-        <div className="row">
-          <br />
-          <br />
-          <div className="logo">
-            <img
-              src={require('../../assets/images/goodbye-clipart-black-and-white-16.jpg')}
-              style={{
-                height: '150px',
-                width: '250px',
-              }}
-            />
-          </div>
+        <div className="logout">
+          <MuiThemeProvider>
+            <div>
+              <AppBar title="Logout" 
+              
+              />
+          
+              <RaisedButton
+                label="Logout"
+                primary={true}
+                style={style}
+                type="logout"
+                onClick={event => this.onSubmit(event)}
+              />
+            </div>
+          </MuiThemeProvider>
         </div>
       </div>
+    
     )
   }
 }

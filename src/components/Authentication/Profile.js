@@ -12,8 +12,7 @@ class Register extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      first_name: '',
-      last_name: '',
+      username: '',
       email: '',
       password: '',
     }
@@ -30,24 +29,14 @@ class Register extends Component {
               <h6>Change your Data:</h6>
               <p>First Name</p>
               <input
-                text="First Name"
-                hintText="Enter your First Name"
-                floatingLabelText="First Name"
+                text="username"
+                hintText="Enter your username"
+                floatingLabelText="username"
                 onChange={(event, newValue) =>
-                  this.setState({ first_name: newValue })
+                  this.setState({ username: newValue })
                 }
               />
-              <br />
-              <br />
-              <p>Last Name</p>
-              <input
-                text="Last Name"
-                hintText="Enter your Last Name"
-                floatingLabelText="Last Name"
-                onChange={(event, newValue) =>
-                  this.setState({ last_name: newValue })
-                }
-              />
+              
               <br />
               <br />
               <p>Email</p>

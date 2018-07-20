@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink as RouterLink } from 'react-router-dom'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -16,18 +17,22 @@ class Login extends Component {
       email: '',
       username: '',
       password: '',
-      passwordConf: '',
-      isFormSent: false,
+      isLoading: false,
 
     }
-
+    this.onSubmit = this.onSubmit.bind(this)
+    this.onChange = this.onChange.bind(this)
   }
 
   onChange = event => {
     console.log(event.target.value)
     const input = event.target
     this.setState({
-      [input.name]: [input.value],
+      [input.username]: [input.value],
+      [input.email]: [input.value],
+      [input.password]: [input.value],
+
+
     })
   }
 
@@ -41,9 +46,7 @@ class Login extends Component {
         const formData = new FormData()
         const dataObj = {
           username: this.state.username,
-          email: this.state.email,
           password: this.state.password,
-          passwordConf: this.state.passwordConf,
           key: this.state.name + this.state.email,
         }
         Object.keys(dataObj).forEach(key => {
@@ -57,20 +60,23 @@ class Login extends Component {
           body: formData,
         }).then(res => {
           console.log(res)
-          this.setState({ isFormSent: true })
+          this.setState({ isLoading: true })
         })
       },
     )
   }
 
   render() {
+    const {identifier, password, isFormSent} = this.state
     return (
       <div>
         <MyNavbar />
         <div className="login">
           <MuiThemeProvider>
             <div>
-              <AppBar title="Login" />
+              <AppBar title="Login" 
+              
+              />
               <TextField
                 hintText="Enter your Username"
                 floatingLabelText="Username"
@@ -78,14 +84,7 @@ class Login extends Component {
                   this.setState({ username: newValue })
                 }
               />
-              <br />
-              <TextField
-              hintText="Enter your Email"
-              floatingLabelText="Email"
-              onChange={(event, newValue) =>
-                this.setState({ email: newValue })
-              }
-            />
+              
             <br />
               <TextField
                 type="password"
@@ -96,22 +95,22 @@ class Login extends Component {
                 }
               />
               <br />
-              <TextField
-                type="password"
-                hintText="Confirm your Password"
-                floatingLabelText="Password"
-                onChange={(event, newValue) =>
-                  this.setState({ passwordConf: newValue })
-                }
-              />
-              <br />
+              
               <RaisedButton
+                disabled={isLoading}
                 label="Submit"
                 primary={true}
                 style={style}
                 type="submit"
                 onClick={event => this.onSubmit(event)}
               />
+              <br />
+              <TextField>
+                <p>Not registrated?</p>
+              <RouterLink to="/registration">
+              Home
+              </RouterLink>
+              </TextField>
             </div>
           </MuiThemeProvider>
         </div>
