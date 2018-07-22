@@ -80,6 +80,11 @@ app.use(session({
   })
 }));
 
+
+
+app.use('/user', userRouter)
+app.use('/product', productRouter)
+
  // catch 404 and forward to error handler
   app.use(function (req, res, next) {
     const err = new Error('File Not Found');
@@ -87,22 +92,15 @@ app.use(session({
     next(err);
   });
 
- // error handler
- // define as the last app.use callback
- app.use(function (err, req, res, next) {
-   res.status(err.status || 500);
-   res.send(err.message);
- });
-
-
-
-app.use ('/user', userRouter)
-app.use('/product', productRouter)
+// error handler
+// define as the last app.use callback
+app.use(function (err, req, res, next) {
+ res.status(err.status || 500);
+ res.send(err.message);
+});
 
 app.listen(process.env.PORT, process.env.IP, function() {
   console.log("server connected")
 })
-
-app.listen(3007)
 
 module.exports = app
