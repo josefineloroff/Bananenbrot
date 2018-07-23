@@ -54,7 +54,7 @@
   },
   "scripts": {
     "start": "react-scripts start | npm run start-server",
-    "start-server": "PORT=3001 nodemon ./server/bin/www",
+    "start-server": "PORT=3001 nodemon ./server/app.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
